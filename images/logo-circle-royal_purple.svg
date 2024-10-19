@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="69.107391mm"
+   height="69.107391mm"
+   viewBox="0 0 69.107391 69.107391"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-61.249025,-73.961088)">
+    <circle
+       style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
+       id="path1"
+       cx="95.802719"
+       cy="108.51478"
+       r="34.553696" />
+    <g
+       id="g4"
+       transform="translate(0,9.0472099)">
+      <g
+         id="g2"
+         transform="translate(0.58690357,1.3867595)">
+        <rect
+           style="fill:#ffffff;stroke:#101935;stroke-width:0"
+           id="rect1"
+           width="8.8984432"
+           height="25.526451"
+           x="90.486771"
+           y="79.521408" />
+        <rect
+           style="fill:#ffffff;stroke:#101935;stroke-width:0"
+           id="rect2"
+           width="8.8984432"
+           height="12.763226"
+           x="79.277046"
+           y="92.284637" />
+        <rect
+           style="fill:#ffffff;stroke:#101935;stroke-width:0"
+           id="rect2-4"
+           width="8.8984432"
+           height="17.963615"
+           x="102.25614"
+           y="87.084244" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:9.3358px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';fill:#ffffff;stroke:#101935;stroke-width:0"
+         x="79.772758"
+         y="117.95403"
+         id="text2"
+         inkscape:label="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.3358px;font-family:'Perpetua Titling MT';-inkscape-font-specification:'Perpetua Titling MT, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0"
+           x="79.772758"
+           y="117.95403">D&amp;F&amp;I</tspan></text>
+    </g>
+  </g>
+</svg>

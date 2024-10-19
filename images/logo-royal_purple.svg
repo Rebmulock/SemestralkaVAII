@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="31.877567mm"
+   height="37.118813mm"
+   viewBox="0 0 31.877567 37.118813"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-84.033335,-157.78851)">
+    <g
+       id="g4-3"
+       transform="translate(4.1694069,76.88035)">
+      <g
+         id="g10">
+        <g
+           id="g11">
+          <g
+             id="g2-3"
+             transform="translate(0.58690357,1.3867595)">
+            <rect
+               style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
+               id="rect1-3"
+               width="8.8984432"
+               height="25.526451"
+               x="90.486771"
+               y="79.521408" />
+            <rect
+               style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
+               id="rect2-3"
+               width="8.8984432"
+               height="12.763226"
+               x="79.277046"
+               y="92.284637" />
+            <rect
+               style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
+               id="rect2-4-5"
+               width="8.8984432"
+               height="17.963615"
+               x="102.25614"
+               y="87.084244" />
+          </g>
+          <text
+             xml:space="preserve"
+             style="font-size:9.3358px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
+             x="79.772758"
+             y="117.95403"
+             id="text2-5"
+             inkscape:label="text2"><tspan
+               sodipodi:role="line"
+               id="tspan2-9"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.3358px;font-family:'Perpetua Titling MT';-inkscape-font-specification:'Perpetua Titling MT, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#550a3c;fill-opacity:1;stroke-width:0"
+               x="79.772758"
+               y="117.95403">D&amp;F&amp;I</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
