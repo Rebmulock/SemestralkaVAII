@@ -16,6 +16,7 @@ body nav {
     justify-content: center;
 
     position: fixed;
+    z-index: 100;
     top: 0;
 
     background: #550a3cff;
@@ -28,4 +29,34 @@ body nav a {
 .nav-logo {
     height: 100%;
     width: auto;
+}
+
+body main {
+    margin-top: 10vh;
+    margin-bottom: 5rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-break {
+    height: 4px;
+    width: 90%;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    border-radius: 15px;
+
+    background: #550a3cff;
+}
+
+.main-text {
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    color: #0c183c;
 }
