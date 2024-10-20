@@ -130,7 +130,7 @@ body main {
 
 }
 
-.option-radio:hover {
+.option input:checked ~ .option-radio {
     background: #0c183c;
 }
 
