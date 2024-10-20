@@ -30,19 +30,48 @@ body nav a {
     width: auto;
 }
 
-body main {
+.first-main {
     margin-top: 10vh;
-    margin-bottom: 5rem;
+}
+
+body main {
+    padding: 1rem;
 
     display: flex;
     align-items: start;
     flex-direction: column;
 }
 
+.nav-break {
+    height: 4px;
+    width: 90%;
+
+    margin-bottom: 1rem;
+
+    align-self: center;
+
+    border-radius: 15px;
+
+    background: #550a3cff;
+}
+
+.main-text {
+    margin-bottom: 6rem;
+
+    align-self: center;
+
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    color: #0c183c;
+}
+
 .content-block {
     width: 50%;
 
-    margin: 5rem 5rem 0;
+    margin: 0 6rem 6rem 6rem;
     padding: 1.5rem;
 
     overflow: auto;
@@ -59,4 +88,41 @@ body main {
     align-items: center;
 
     text-align: justify;
+}
+
+.main-info {
+    height: 25rem;
+    width: 100vw;
+
+    display: flex;
+
+    color: white;
+    background: #0c183c;
+}
+
+.info-title {
+    margin: 0;
+
+    align-self: center;
+
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-content {
+    padding: 1rem 6rem;
+
+    align-self: center;
+
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.info-author {
+    margin-top: auto;
+    margin-right: 6rem;
+
+    align-self: flex-end;
 }
