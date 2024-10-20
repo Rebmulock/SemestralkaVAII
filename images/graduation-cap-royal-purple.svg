@@ -2,18 +2,18 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="31.317936mm"
-   height="37.118793mm"
-   viewBox="0 0 31.317936 37.118793"
+   width="169.3374mm"
+   height="118.55659mm"
+   viewBox="0 0 169.3374 118.55659"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    sodipodi:docname="semestralka.svg"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
      bordercolor="#000000"
@@ -31,49 +31,42 @@
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs1" />
-  <g
+     inkscape:current-layer="layer1" /><defs
+     id="defs1" /><g
      inkscape:label="Vrstva 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-121.39878,-170.55174)">
-    <g
+     transform="translate(254.92214,-217.52412)"><g
        id="g4-3"
-       transform="translate(4.1694069,76.88035)">
-      <g
-         id="g10">
-        <g
+       transform="translate(4.1694069,76.88035)"><g
+         id="g10"><g
            id="g11"
            inkscape:export-filename="logo-royal_purple.svg"
            inkscape:export-xdpi="96"
-           inkscape:export-ydpi="96">
-          <g
+           inkscape:export-ydpi="96"><g
              id="g3"
-             transform="translate(-16.801042,61.055864)">
-            <rect
+             transform="translate(-16.801042,61.055864)"
+             inkscape:export-filename="Semestralka\images\logo-white.svg"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96"><rect
                style="fill:#ffffff;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect1-3-4"
                width="8.8984432"
                height="25.526451"
                x="145.24017"
-               y="32.615524" />
-            <rect
+               y="32.615524" /><rect
                style="fill:#ffffff;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect2-3-9"
                width="8.8984432"
                height="12.763226"
                x="134.03044"
-               y="45.378754" />
-            <rect
+               y="45.378754" /><rect
                style="fill:#ffffff;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect2-4-5-7"
                width="8.8984432"
                height="17.963615"
                x="156.44991"
-               y="40.17836" />
-            <text
+               y="40.17836" /><text
                xml:space="preserve"
                style="font-size:9.1719px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';fill:#ffffff;fill-opacity:1;stroke:#101935;stroke-width:0"
                x="133.94084"
@@ -87,33 +80,27 @@
                  id="tspan2-9-3"
                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.1719px;font-family:'Perpetua Titling MT';-inkscape-font-specification:'Perpetua Titling MT, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke-width:0"
                  x="133.94084"
-                 y="69.662659">D&amp;F&amp;I</tspan></text>
-          </g>
-          <g
+                 y="69.662659">D&amp;F&amp;I</tspan></text></g><g
              id="g2-3"
-             transform="translate(-70.171686,1.3867551)">
-            <rect
+             transform="translate(-70.171686,1.3867551)"><rect
                style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect1-3"
                width="8.8984432"
                height="25.526451"
                x="90.486771"
-               y="79.521408" />
-            <rect
+               y="79.521408" /><rect
                style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect2-3"
                width="8.8984432"
                height="12.763226"
                x="79.277046"
-               y="92.284637" />
-            <rect
+               y="92.284637" /><rect
                style="fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
                id="rect2-4-5"
                width="8.8984432"
                height="17.963615"
                x="101.6965"
-               y="87.084244" />
-            <text
+               y="87.084244" /><text
                xml:space="preserve"
                style="font-size:9.1719px;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift, Normal';fill:#550a3c;fill-opacity:1;stroke:#101935;stroke-width:0"
                x="79.774361"
@@ -125,10 +112,10 @@
                  id="tspan2-9"
                  style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:9.1719px;font-family:'Perpetua Titling MT';-inkscape-font-specification:'Perpetua Titling MT, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#550a3c;fill-opacity:1;stroke-width:0"
                  x="79.774361"
-                 y="117.95531">D&amp;F&amp;I</tspan></text>
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
-</svg>
+                 y="117.95531">D&amp;F&amp;I</tspan></text></g><path
+             d="m -174.42082,140.64378 c -2.14313,0 -4.25979,0.37041 -6.27063,1.08479 l -74.21561,26.8023 c -2.51354,0.92604 -4.18042,3.30729 -4.18042,5.97958 0,2.67229 1.66688,5.05354 4.18042,5.97958 l 15.31937,5.52979 c -4.33916,6.82625 -6.79979,14.89605 -6.79979,23.38917 v 7.4348 c 0,7.51416 -2.8575,15.26646 -5.90021,21.37833 -1.71979,3.43959 -3.6777,6.82625 -5.95312,9.94834 -0.84667,1.1377 -1.08479,2.61937 -0.60854,3.96875 0.47625,1.34937 1.5875,2.35479 2.96333,2.69875 l 16.93333,4.23333 c 1.11125,0.29104 2.30188,0.0794 3.28084,-0.52917 0.97895,-0.60854 1.66687,-1.61396 1.87854,-2.75166 2.27541,-11.32417 1.13771,-21.48417 -0.55563,-28.76022 -0.84666,-3.75708 -1.98437,-7.59354 -3.57187,-11.1125 v -6.50875 c 0,-7.99041 2.69875,-15.53104 7.38187,-21.56354 3.41313,-4.10104 7.83167,-7.40833 13.01751,-9.44563 l 41.53957,-16.32479 c 2.16958,-0.84666 4.6302,0.21167 5.47688,2.38125 0.84665,2.16959 -0.21167,4.63021 -2.38125,5.47688 l -41.53958,16.32479 c -3.28083,1.29646 -6.16479,3.28083 -8.51958,5.715 l 42.22748,15.24 c 2.01084,0.71438 4.1275,1.08479 6.27063,1.08479 2.14312,0 4.25979,-0.37041 6.27062,-1.08479 l 74.242085,-26.72292 c 2.51354,-0.89958 4.18042,-3.30729 4.18042,-5.97958 0,-2.67229 -1.66688,-5.05354 -4.18042,-5.97958 l -74.215625,-26.8023 c -2.01083,-0.71438 -4.1275,-1.08479 -6.27062,-1.08479 z m -50.79999,99.48334 c 0,9.33979 22.75416,19.05 50.8,19.05 28.04581,0 50.79999,-9.71021 50.79999,-19.05 l -4.04813,-38.47042 -37.62374,13.59959 c -2.93688,1.05833 -6.0325,1.5875 -9.12812,1.5875 -3.09563,0 -6.21771,-0.52917 -9.12813,-1.5875 l -37.62374,-13.59959 z"
+             id="path1-5"
+             style="fill:#550a3c;fill-opacity:1;stroke-width:0.264583"
+             inkscape:export-filename="Semestralka\images\graduation-cap-royal-purple.svg"
+             inkscape:export-xdpi="96"
+             inkscape:export-ydpi="96" /></g></g></g></g></svg>
