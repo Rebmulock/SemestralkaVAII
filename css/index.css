@@ -83,14 +83,13 @@ body main {
 
 .option-content {
     height: 100%;
-    width: auto;
+    width: 20rem;
 
     padding: 1rem;
     gap: 2rem;
 
     display: flex;
     flex-direction: column;
-
 }
 
 .option {
@@ -125,9 +124,15 @@ body main {
     opacity: 0;
 }
 
+.option input:hover {
+    cursor: pointer;
+}
+
 .option-radio {
     height: 1rem;
     aspect-ratio: 1 / 1;
+
+    margin: 1rem;
 
     border: 0.1rem solid rgba(12, 24, 60, 0.21);
     border-radius: 50%;
