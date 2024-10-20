@@ -7,13 +7,16 @@ html, body {
 
 body nav {
     height: 10vh;
+    width: 100vw;
 
     padding: 1.5vh;
-    gap: 1rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: fixed;
+    top: 0;
 
     background: #550a3cff;
 }
@@ -25,13 +28,11 @@ body nav a {
 .nav-logo {
     height: 100%;
     width: auto;
-
-    flex-shrink: 0;
 }
 
 body main {
-    height: 90vh;
-
+    margin-top: 10vh;
+    margin-bottom: 5rem;
     padding: 1rem;
 
     display: flex;

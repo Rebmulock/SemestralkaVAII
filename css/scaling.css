@@ -74,11 +74,14 @@ body main {
 }
 
 .card-body {
-    height: 75vh;
+    min-height: 75vh;
+
+    overflow: hidden;
 }
 
 .card-body img {
-    height: 10rem;
+    max-height: 10rem;
+    width: 100%;
 
     align-self: center !important;
 }

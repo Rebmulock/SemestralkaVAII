@@ -26,8 +26,7 @@ body nav a {
 }
 
 .nav-logo {
-    height: 100%;
-    width: auto;
+    max-height: 100%;
 }
 
 .first-main {
@@ -74,7 +73,7 @@ body main {
     margin: 0 6rem 6rem 6rem;
     padding: 1.5rem;
 
-    overflow: auto;
+    overflow: hidden;
 
     border-radius: 15px;
 
