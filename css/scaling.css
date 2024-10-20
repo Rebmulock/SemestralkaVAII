@@ -77,6 +77,12 @@ body main {
     height: 75vh;
 }
 
+.card-body img {
+    height: 10rem;
+
+    align-self: center !important;
+}
+
 .contact-form {
     width: 50%;
 }
