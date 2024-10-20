@@ -57,19 +57,36 @@ body main {
 
 .choices-container {
     border-radius: 15px;
-    box-shadow: 5px 5px 10px #777777;
+    box-shadow: 5px 5px 20px #0c183c;
 
     padding: 1rem;
     gap: 1rem;
 
     display: flex;
     flex-direction: column;
-}
 
-.choices-title {
+    color: #0c183c;
+
     font-family: "Perpetua Titling MT", serif;
     font-size: 1rem;
     font-weight: bold;
+    text-align: center;
+}
+
+.choices-title {
+    font-size: 1.25rem;
+}
+
+.option-content {
+    height: 100%;
+    width: auto;
+
+    padding: 1rem;
+    gap: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
 }
 
 .option {
@@ -82,12 +99,41 @@ body main {
     display: flex;
     align-items: center;
 
-    border: 1px solid black;
+    border: 0.1rem solid rgba(12, 24, 60, 0.21);
     border-radius: 15px;
+
+    transition: background-color 0.5s ease;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.option-text {
-    font-family: "Perpetua Titling MT", serif;
-    font-size: 1rem;
-    text-align: center;
+.option:hover {
+    cursor: pointer;
+
+    background: rgba(0, 0, 0, 0.11);
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.option-radio {
+    height: 1rem;
+    aspect-ratio: 1 / 1;
+
+    border: 0.1rem solid rgba(12, 24, 60, 0.21);
+    border-radius: 50%;
+
+}
+
+.option-radio:hover {
+    background: #0c183c;
+}
+
+.option-img {
+    height: 5rem;
 }

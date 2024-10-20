@@ -24,20 +24,33 @@
 
             <form>
                 <fieldset class="choices-container">
-                    <legend class="choices-title">Choose what best describes your desire:</legend>
+                    <legend class="choices-title">Choose what best describes your goal:</legend>
 
-                    <div class="option">
-                        <input type="radio" id="beginner" name="monster" value="K">
-                        <label class="option-text" for="beginner">Unlock the best blueprint for beginners</label>
-                    </div>
+                    <label class="option" onclick="window.location='blueprint.html';">
+                        <input type="radio" id="beginner" name="beginner-radio">
+                        <span class="option-radio"></span>
 
-                    <div class="option">
-                        <input type="radio" id="others" name="monster" value="K">
-                        <label class="option-text" for="others">Scale your trading from experience to consistent profit </label>
-                    </div>
+                        <span class="option-content">
+                            <img class="option-img" src="images/graduation-cap-royal-purple.svg" alt="graduation cap">
+                            Unlock the best blueprint for beginners
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" id="others" name="others-radio">
+                        <span class="option-radio"></span>
+
+                        <span class="option-content">
+                            <img class="option-img" src="images/money-bill-trend-up-royal-purple.svg" alt="graduation cap">
+                            Scale my trading from experience to consistent profit
+                        </span>
+
+                    </label>
 
                 </fieldset>
             </form>
+
+            <div class="footer"></div>
         </main>
     </body>
 </html>
