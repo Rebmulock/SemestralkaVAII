@@ -61,10 +61,28 @@ body main {
     color: #0c183c;
 }
 
+.main-text-thin {
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 1.5rem;
+    text-align: center;
+
+    color: #0c183c;
+}
+
 .row {
     width: 100%;
 }
 
 .card-body {
     height: 75vh;
+}
+
+.contact-form {
+    width: 50%;
+}
+
+.btn-primary {
+
+    border: #550a3c !important;
+    background: #550a3c !important;
 }
