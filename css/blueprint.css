@@ -27,7 +27,7 @@ body nav a {
     width: auto;
 }
 
-body main {
+.main {
     padding: 1rem;
 
     display: flex;
