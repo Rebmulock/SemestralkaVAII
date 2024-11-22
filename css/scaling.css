@@ -6,18 +6,14 @@ html, body {
 }
 
 body nav {
-    height: 10vh;
+    height: 6rem;
     width: 100vw;
 
-    padding: 1.5vh;
+    padding: 1rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: fixed;
-    z-index: 100;
-    top: 0;
 
     background: #550a3cff;
 }
@@ -32,7 +28,6 @@ body nav a {
 }
 
 body main {
-    margin-top: 10vh;
     margin-bottom: 5rem;
     padding: 1rem;
 
