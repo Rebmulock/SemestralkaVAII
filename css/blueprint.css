@@ -6,17 +6,14 @@ html, body {
 }
 
 body nav {
-    height: 10vh;
+    height: 6rem;
     width: 100vw;
 
-    padding: 1.5vh;
+    padding: 1rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    position: fixed;
-    top: 0;
 
     background: #550a3cff;
 }
@@ -26,11 +23,8 @@ body nav a {
 }
 
 .nav-logo {
-    max-height: 100%;
-}
-
-.first-main {
-    margin-top: 10vh;
+    height: 100%;
+    width: auto;
 }
 
 body main {
@@ -68,12 +62,10 @@ body main {
 }
 
 .content-block {
-    width: 50%;
+    width: 60%;
 
     margin: 0 6rem 6rem 6rem;
     padding: 1.5rem;
-
-    overflow: hidden;
 
     border-radius: 15px;
 
@@ -124,4 +116,25 @@ body main {
     margin-right: 6rem;
 
     align-self: flex-end;
+}
+
+@media (max-width: 1100px) {
+
+    .content-block {
+        width: 100%;
+
+        margin: 0 0 6rem;
+    }
+
+    .content-block h1 {
+        margin-bottom: 1.5rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .main-info {
+        height: fit-content;
+    }
 }
