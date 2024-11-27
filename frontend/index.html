@@ -25,35 +25,8 @@
 
             <p class="main-text">Kickstart Your Trading Journey or Elevate Your Skills!</p>
 
-            <form>
-                <fieldset class="choices-container">
-                    <legend class="choices-title">Choose what best describes your goal:</legend>
-
-                    <label class="option" onclick="window.location='pages/blueprint.html';" for="beginner">
-                        <input type="radio" id="beginner" name="option-radio">
-                        <span class="option-radio"></span>
-
-                        <span class="option-content">
-                            <img class="option-img" src="images/graduation-cap-royal-purple.svg" alt="graduation cap">
-                            <span class="option-text">Unlock the best blueprint for beginners</span>
-                        </span>
-                    </label>
-
-                    <label class="option" onclick="window.location='pages/scaling.html';" for="others">
-                        <input type="radio" id="others" name="option-radio">
-                        <span class="option-radio"></span>
-
-                        <span class="option-content">
-                            <img class="option-img" src="images/money-bill-trend-up-royal-purple.svg" alt="graduation cap">
-                            <span class="option-text">Scale my trading from experience to consistent profit</span>
-                        </span>
-
-                    </label>
-
-                </fieldset>
-            </form>
-
-            <div class="footer"></div>
+            <div id="root"></div>
+            <script type="module" src="./javascript/main.jsx"></script>
         </main>
     </body>
 </html>
