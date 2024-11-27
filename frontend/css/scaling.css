@@ -90,3 +90,13 @@ body main {
     border: #550a3c !important;
     background: #550a3c !important;
 }
+
+.mt-auto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-qualify {
+    max-width: fit-content;
+}
