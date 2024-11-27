@@ -1,6 +1,6 @@
 const NavbarComponent = () => {
     return (
-        <nav>
+        <nav className="navbar">
             <a href="../index.html">
                 <img className="nav-logo" src="../images/logo-white.svg" alt="logo"/>
             </a>
