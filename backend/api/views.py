@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
+from .serializer import ContentBlockSerializer
+from .models import ContentBlock
 
 
 class LoginUserView(APIView):
@@ -27,3 +29,25 @@ class LoginUserView(APIView):
 
         else:
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+class CreateContentBlock(generics.ListCreateAPIView):
+    serializer_class = ContentBlockSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return ContentBlock.objects.filter(author=user)
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save(author=self.request.user)
+        else:
+            print(serializer.errors)
+
+class DeleteContentBlock(generics.RetrieveDestroyAPIView):
+    serializer_class = ContentBlockSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return ContentBlock.objects.filter(author=user)
