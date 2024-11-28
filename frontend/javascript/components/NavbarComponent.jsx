@@ -1,3 +1,5 @@
+import React from 'react';
+
 const NavbarComponent = () => {
     return (
         <nav className="navbar">

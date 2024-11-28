@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FormComponent = () => {
     const options = [{
             id: "beginner",
