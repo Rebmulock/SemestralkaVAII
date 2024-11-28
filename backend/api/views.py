@@ -32,3 +32,5 @@ class LoginUserView(APIView):
 class CreateContentBlock(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    image = models.ImageField(upload_to="content/")
+    image_alt = models.CharField(max_length=30)
