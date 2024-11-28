@@ -1,25 +1,30 @@
 from django.shortcuts import render
+from django.contrib.auth import authenticate
 from rest_framework import status
-from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from .models import *
-from .serializer import *
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework_simplejwt.tokens import RefreshToken
 
-class UserView(APIView):
 
-    serializer_class = UserSerializer
-
-    def get(self, request):
-        user = [{"username": user.username} for user in User.objects.all()]
-
-        return Response(user)
+class LoginUserView(APIView):
+    permission_classes = (AllowAny,)
 
     def post(self, request):
-        serializer = UserSerializer(data=request.data)
+        username = request.data.get('username')
+        password = request.data.get('password')
 
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        user = authenticate(username=username, password=password)
 
-    permission_classes = [AllowAny]
+        if user is not None:
+
+            refresh = RefreshToken.for_user(user)
+            access_token = str(refresh.access_token)
+
+            return Response({
+                'access': access_token,
+                'refresh': str(refresh),
+            }, status=status.HTTP_200_OK)
+
+        else:
+            return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
