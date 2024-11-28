@@ -55,4 +55,4 @@ const ServiceCardComponent = () => {
     )
 }
 
-export default ServiceCardComponent
+export default ServiceCardComponent;

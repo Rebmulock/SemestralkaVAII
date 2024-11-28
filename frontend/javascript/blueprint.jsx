@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '../css/navbar.css'
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import ContentBlockComponent from "./components/ContentBlockComponent.jsx";
+import UserControlComponent from "./components/UserControlComponent.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -46,5 +47,7 @@ createRoot(document.getElementById('root')).render(
 
             <ContentBlockComponent/>
         </div>
+
+        <UserControlComponent/>
     </StrictMode>,
 )

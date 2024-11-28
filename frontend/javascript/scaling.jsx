@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '../css/navbar.css'
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import ServiceCardComponent from "./components/ServiceCardComponent.jsx";
+import UserControlComponent from "./components/UserControlComponent.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -37,5 +38,7 @@ createRoot(document.getElementById('root')).render(
                 <button type="submit" className="btn btn-primary">Send Message</button>
             </form>
         </main>
+
+        <UserControlComponent/>
     </StrictMode>,
 )

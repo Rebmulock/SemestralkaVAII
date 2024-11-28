@@ -4,6 +4,7 @@ import '../css/navbar.css'
 import '../css/index.css'
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import FormComponent from "./components/FormComponent.jsx";
+import UserControlComponent from "./components/UserControlComponent.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -13,5 +14,7 @@ createRoot(document.getElementById('root')).render(
             <p className="main-text">Kickstart Your Trading Journey or Elevate Your Skills!</p>
             <FormComponent />
         </main>
+
+        <UserControlComponent />
     </StrictMode>,
 )
