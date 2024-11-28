@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.db import models
 from django.contrib.auth import authenticate
 from rest_framework import status
 from rest_framework.response import Response
@@ -28,3 +28,7 @@ class LoginUserView(APIView):
 
         else:
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+
+class CreateContentBlock(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
