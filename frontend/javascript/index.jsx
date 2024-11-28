@@ -2,8 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '../css/navbar.css'
 import '../css/index.css'
-import NavbarComponent from "./NavbarComponent.jsx";
-import FormComponent from "./FormComponent.jsx";
+import NavbarComponent from "./components/NavbarComponent.jsx";
+import FormComponent from "./components/FormComponent.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
