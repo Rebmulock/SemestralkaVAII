@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = ({ setUser }) => {
+const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [user, setUser] = useState(null);
     const [error, setError] = useState("");
 
     const handleLogin = async (e) => {
@@ -13,10 +14,11 @@ const Login = ({ setUser }) => {
                 username,
                 password,
             });
-            const {access} = response.data;
-            localStorage.setItem("token", access);
-            console.log(localStorage.getItem("token"));
-            setUsername(username);
+            const {refresh, access} = response.data;
+            console.log(response.data);
+            localStorage.setItem("refresh", refresh);
+            localStorage.setItem("access", access);
+            setUser(username)
             setError("");
         } catch (err) {
             console.log(err);
@@ -24,32 +26,49 @@ const Login = ({ setUser }) => {
         }
     };
 
+    const handleLogout = () => {
+        localStorage.removeItem("refresh");
+        localStorage.removeItem("access");
+        setUser(null);
+    }
+
     return (
-        <form className="menu-option" onSubmit={handleLogin}>
-            <div>
-                <label>Username</label>
-                <label>Password</label>
-            </div>
+        <div>
+            {user ? (
+                <div className="menu-option">
+                    <b>{user}</b>
+                    <button onClick={handleLogout}>Logout</button>
+                </div>
+            ) : (
+                    <form className="menu-option" onSubmit={handleLogin}>
+                        <div>
+                            <label>Username</label>
+                            <label>Password</label>
+                        </div>
 
-            <div>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
+                        <div>
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
 
-            {error && <p style={{color: "red"}}>{error}</p>}
-            <button type="submit">Login</button>
-        </form>
-    );
-};
+                        {error && <p style={{color: "red"}}>{error}</p>}
+                        <button type="submit">Login</button>
+                    </form>
+                )
+            }
+        </div>
+    )
+}
+    ;
 
-export default Login;
+    export default Login;
