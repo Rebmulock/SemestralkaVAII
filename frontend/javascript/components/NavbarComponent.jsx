@@ -1,9 +1,15 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 const NavbarComponent = () => {
+    const navigate = useNavigate();
+
     return (
         <nav className="navbar">
-            <a href="../../index.html">
+            <a onClick={(e) => {
+                e.preventDefault();
+                navigate("/");
+            }}>
                 <img className="nav-logo" src="../../images/logo-white.svg" alt="logo"/>
             </a>
         </nav>

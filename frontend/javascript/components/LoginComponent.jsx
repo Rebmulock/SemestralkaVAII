@@ -16,6 +16,7 @@ const Login = () => {
             });
             const {refresh, access} = response.data;
             console.log(response.data);
+            localStorage.setItem("user", username);
             localStorage.setItem("refresh", refresh);
             localStorage.setItem("access", access);
             setUser(username)
@@ -27,16 +28,18 @@ const Login = () => {
     };
 
     const handleLogout = () => {
+        localStorage.removeItem("user");
         localStorage.removeItem("refresh");
         localStorage.removeItem("access");
         setUser(null);
+        console.log(localStorage.getItem("refresh"));
     }
 
     return (
         <div>
             {user ? (
                 <div className="menu-option">
-                    <b>{user}</b>
+                    <b>{localStorage.getItem("user")}</b>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             ) : (

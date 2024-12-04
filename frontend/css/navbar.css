@@ -13,6 +13,7 @@
 
 .navbar a {
     height: 100%;
+    cursor: pointer;
 }
 
 .nav-logo {

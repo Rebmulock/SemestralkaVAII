@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 const FormComponent = () => {
     const options = [{
@@ -6,18 +7,20 @@ const FormComponent = () => {
             text: "Unlock the best blueprint for beginners",
             imgSrc: "images/graduation-cap-royal-purple.svg",
             imgAlt: "graduation cap",
-            url: "pages/blueprint.html",
+            url: "/blueprint",
         }, {
             id: "others",
             text: "Scale my trading from experience to consistent profit",
             imgSrc: "images/money-bill-trend-up-royal-purple.svg",
             imgAlt: "money bill",
-            url: "pages/scaling.html",
+            url: "/scaling",
         }
     ];
 
+    const navigate = useNavigate();
+
     const formOptions = options.map(option => (
-        <label key={option.id} className="option" onClick={() => (window.location.href = option.url)} htmlFor={option.id}>
+        <label key={option.id} className="option" onClick={() => navigate(option.url)} htmlFor={option.id}>
             <input type="radio" id={option.id} name="option-radio" />
 
             <span className="option-radio"></span>
