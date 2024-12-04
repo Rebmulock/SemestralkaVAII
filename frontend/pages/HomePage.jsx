@@ -1,10 +1,8 @@
 import React from "react";
-import NavbarComponent from "../javascript/components/NavbarComponent.jsx";
 import FormComponent from "../javascript/components/FormComponent.jsx";
-import UserControlComponent from "../javascript/components/UserControlComponent.jsx";
 import "../css/homepage.css"
 
-const HomePage = ({ isAuthenticated }) => {
+const HomePage = () => {
     return (
         <>
             <main>

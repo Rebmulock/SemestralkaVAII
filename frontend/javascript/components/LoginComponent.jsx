@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-const LoginComponent = ({ isAuthenticated }) => {
+const LoginComponent = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -48,7 +48,7 @@ const LoginComponent = ({ isAuthenticated }) => {
 
     return (
         <div>
-            {isAuthenticated ? (
+            {localStorage.getItem('refresh') !== null ? (
                 <div className="menu-option">
                     <b>{localStorage.getItem("username")}</b>
                     <button onClick={handleLogout}>Logout</button>

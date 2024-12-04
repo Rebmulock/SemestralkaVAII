@@ -14,7 +14,7 @@ const DeleteUser = () => {
         if (!confirmed) return;
 
         try {
-            const response = await sendApiRequest(
+            await sendApiRequest(
                 'http://127.0.0.1:8000/api/delete-user/',
                 'DELETE'
             );

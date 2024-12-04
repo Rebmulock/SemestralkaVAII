@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../../css/usercontrol.css'
 import LoginComponent from "./LoginComponent.jsx";
 
-const UserControlComponent = ({ isAuthenticated }) => {
+const UserControlComponent = () => {
     const [isPressed, setIsPressed] = useState(false);
     const [openMenu, setOpenMenu] = React.useState(false);
 
@@ -21,7 +21,7 @@ const UserControlComponent = ({ isAuthenticated }) => {
     return (
         <div className="user-control">
             <div className={`user-control-menu ${openMenu ? 'open' : ''}`}>
-                <LoginComponent className="menu-option menu-option-lower" isAuthenticated={isAuthenticated} />
+                <LoginComponent className="menu-option menu-option-lower" />
             </div>
             <a onMouseDown={handleMouseDown}
                onMouseUp={handleMouseUp}
