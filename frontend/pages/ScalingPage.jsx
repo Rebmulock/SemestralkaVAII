@@ -2,7 +2,7 @@ import React from "react";
 import NavbarComponent from "../javascript/components/NavbarComponent.jsx";
 import ServiceCardComponent from "../javascript/components/ServiceCardComponent.jsx";
 import UserControlComponent from "../javascript/components/UserControlComponent.jsx";
-import "../css/blueprint.css"
+import "../css/scaling.css"
 
 const ScalingPage = () => {
     return (

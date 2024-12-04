@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
+import "../../css/homepage-form.css"
 
 const FormComponent = () => {
     const options = [{

@@ -1,0 +1,32 @@
+.row {
+    width: 100%;
+}
+
+.card-body {
+    min-height: 75vh;
+
+    overflow: hidden;
+}
+
+.card-body img {
+    max-height: 10rem;
+    width: 100%;
+
+    align-self: center !important;
+}
+
+.btn-primary {
+
+    border: #550a3c !important;
+    background: #550a3c !important;
+}
+
+.mt-auto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-qualify {
+    max-width: fit-content;
+}
