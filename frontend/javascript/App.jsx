@@ -5,6 +5,7 @@ import BlueprintPage from "../pages/BlueprintPage.jsx";
 import ScalingPage from "../pages/ScalingPage.jsx";
 import UserControlComponent from "./components/UserControlComponent.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
+import NotFound from "../pages/NotFound.jsx";
 
 const App = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/" element={<HomePage isAuthenticated={isAuthenticated} />} />
                 <Route path="/blueprint" element={<BlueprintPage isAuthenticated={isAuthenticated} />} />
                 <Route path="/scaling" element={<ScalingPage isAuthenticated={isAuthenticated} />} />
+                <Route path="*" element={<NotFound /> } />
             </Routes>
             <UserControlComponent isAuthenticated={isAuthenticated} />
         </Router>

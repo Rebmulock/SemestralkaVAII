@@ -25,6 +25,8 @@ const LoginComponent = ({ isAuthenticated }) => {
             console.log(err);
             setError("Invalid credentials");
         }
+
+        window.location.reload();
     };
 
     const handleLogout = () => {
@@ -33,6 +35,7 @@ const LoginComponent = ({ isAuthenticated }) => {
         localStorage.removeItem("access");
         setUser(null);
         console.log(localStorage.getItem("refresh"));
+        window.location.reload();
     }
 
     return (
