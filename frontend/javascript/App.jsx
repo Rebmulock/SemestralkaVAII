@@ -33,7 +33,7 @@ const App = () => {
                 <Route path="/scaling" element={<ScalingPage isAuthenticated={isAuthenticated} />} />
                 <Route path="/register" element={<Register isAuthenticated={isAuthenticated} />} />
                 <Route path="/delete" element={<DeleteUser isAuthenticated={isAuthenticated} />} />
-                <Route path="/update-password" element={<UpdatePassword isAuthenticated={isAuthenticated} />} />
+                <Route path="/change-password" element={<UpdatePassword isAuthenticated={isAuthenticated} />} />
                 <Route path="*" element={<NotFound /> } />
             </Routes>
             <UserControlComponent isAuthenticated={isAuthenticated} />
