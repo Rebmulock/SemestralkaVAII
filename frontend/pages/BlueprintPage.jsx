@@ -4,10 +4,9 @@ import ContentBlockComponent from "../javascript/components/ContentBlockComponen
 import UserControlComponent from "../javascript/components/UserControlComponent.jsx";
 import "../css/blueprint.css"
 
-const BlueprintPage = () => {
+const BlueprintPage = ({ isAuthenticated }) => {
     return (
         <>
-            <NavbarComponent/>
             <div className="first-main main">
                 <div className="nav-break"></div>
 
@@ -47,8 +46,6 @@ const BlueprintPage = () => {
 
                 <ContentBlockComponent/>
             </div>
-
-            <UserControlComponent/>
         </>
     )
 }

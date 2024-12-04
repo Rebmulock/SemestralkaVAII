@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const LoginComponent = ({ isAuthenticated }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState(null);
@@ -16,7 +16,7 @@ const Login = () => {
             });
             const {refresh, access} = response.data;
             console.log(response.data);
-            localStorage.setItem("user", username);
+            localStorage.setItem("username", username);
             localStorage.setItem("refresh", refresh);
             localStorage.setItem("access", access);
             setUser(username)
@@ -28,7 +28,7 @@ const Login = () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem("user");
+        localStorage.removeItem("username");
         localStorage.removeItem("refresh");
         localStorage.removeItem("access");
         setUser(null);
@@ -37,9 +37,9 @@ const Login = () => {
 
     return (
         <div>
-            {user ? (
+            {isAuthenticated ? (
                 <div className="menu-option">
-                    <b>{localStorage.getItem("user")}</b>
+                    <b>{localStorage.getItem("username")}</b>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             ) : (
@@ -71,7 +71,6 @@ const Login = () => {
             }
         </div>
     )
-}
-    ;
+};
 
-    export default Login;
+export default LoginComponent;

@@ -4,11 +4,9 @@ import ServiceCardComponent from "../javascript/components/ServiceCardComponent.
 import UserControlComponent from "../javascript/components/UserControlComponent.jsx";
 import "../css/scaling.css"
 
-const ScalingPage = () => {
+const ScalingPage = ({ isAuthenticated }) => {
     return (
         <>
-            <NavbarComponent/>
-
             <main>
                 <div className="nav-break"></div>
 
@@ -38,8 +36,6 @@ const ScalingPage = () => {
                     <button type="submit" className="btn btn-primary">Send Message</button>
                 </form>
             </main>
-
-            <UserControlComponent/>
         </>
     )
 }
