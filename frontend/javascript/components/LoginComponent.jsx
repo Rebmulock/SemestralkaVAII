@@ -38,22 +38,12 @@ const LoginComponent = () => {
         window.location.reload();
     }
 
-    const handleDelete = () => {
-        navigate("/delete")
-    }
-
-    const handlePassword = () => {
-        navigate("/change-password")
-    }
-
     return (
         <div>
             {localStorage.getItem('refresh') !== null ? (
                 <div className="menu-option">
                     <b>{localStorage.getItem("username")}</b>
                     <button onClick={handleLogout}>Logout</button>
-                    <button onClick={handleDelete}>Delete Acc</button>
-                    <button onClick={handlePassword}>Change Password</button>
                 </div>
             ) : (
                 <form className="menu-option" onSubmit={handleLogin}>
