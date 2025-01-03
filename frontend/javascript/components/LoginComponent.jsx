@@ -56,30 +56,30 @@ const LoginComponent = () => {
                     <button onClick={handlePassword}>Change Password</button>
                 </div>
             ) : (
-                    <form className="menu-option" onSubmit={handleLogin}>
-                        <div>
-                            <label>Username</label>
-                            <label>Password</label>
-                        </div>
+                <form className="menu-option" onSubmit={handleLogin}>
+                    <div>
+                        <label>Username</label>
+                        <label>Password</label>
+                    </div>
 
-                        <div>
-                            <input
-                                type="text"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
-                            />
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
+                    <div>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                        {error && <p style={{color: "red"}}>{error}</p>}
-                        <button type="submit">Login</button>
-                    </form>
+                    {error && <p style={{color: "red"}}>{error}</p>}
+                    <button type="submit">Login</button>
+                </form>
                 )
             }
         </div>

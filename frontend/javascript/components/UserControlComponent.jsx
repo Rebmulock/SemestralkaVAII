@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../../css/usercontrol.css'
 import LoginComponent from "./LoginComponent.jsx";
+import RegisterComponent from "./RegisterComponent.jsx";
 
 const UserControlComponent = () => {
     const [isPressed, setIsPressed] = useState(false);
@@ -21,7 +22,8 @@ const UserControlComponent = () => {
     return (
         <div className="user-control">
             <div className={`user-control-menu ${openMenu ? 'open' : ''}`}>
-                <LoginComponent className="menu-option menu-option-lower" />
+                <LoginComponent className="menu-option" />
+                <RegisterComponent className="menu-option" />
             </div>
             <a onMouseDown={handleMouseDown}
                onMouseUp={handleMouseUp}
