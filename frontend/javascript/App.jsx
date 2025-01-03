@@ -6,8 +6,7 @@ import ScalingPage from "../pages/ScalingPage.jsx";
 import UserControlComponent from "./components/UserControlComponent.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import NotFound from "../pages/NotFound.jsx";
-import DeleteUser from "../pages/DeleteUser.jsx";
-import UpdatePassword from "../pages/UpdatePassword.jsx";
+import ProfilePage from "../pages/ProfilePage.jsx";
 
 const App = () => {
     return (
@@ -17,8 +16,7 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/blueprint" element={<BlueprintPage />} />
                 <Route path="/scaling" element={<ScalingPage />} />
-                <Route path="/delete" element={<DeleteUser />} />
-                <Route path="/change-password" element={<UpdatePassword />} />
+                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="*" element={<NotFound /> } />
             </Routes>
             <UserControlComponent />
