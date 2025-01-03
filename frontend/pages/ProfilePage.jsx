@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../css/homepage.css';
+import '../css/profilepage.css';
 import {sendApiRequest} from "../javascript/ApiRequest.jsx";
 
 const ProfilePage = () => {
@@ -80,56 +80,60 @@ const ProfilePage = () => {
             <div className="nav-break"></div>
             <p className="main-text">Profile Page</p>
 
-            <div className="delete-user-container">
-                <h2>Delete Account</h2>
-                <p>Warning: Deleting your account is permanent and cannot be undone.</p>
-                <button onClick={handleDelete} className="delete-button">
-                    Delete My Account
-                </button>
-                {messageDelete && <p className="success-message">{messageDelete}</p>}
-                {errorDelete && <p className="error-message">{errorDelete}</p>}
-            </div>
+            <div className="profile-container">
+                <h3>First Name</h3>
+                <h3>Last Name</h3>
+                <h3>Username</h3>
+                <h3>E-mail</h3>
+                <div className="update-password-container">
+                    <h3>Update Password</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="oldPassword">Old Password:</label>
+                            <input
+                                type="password"
+                                id="oldPassword"
+                                name="oldPassword"
+                                value={formData.oldPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="newPassword">New Password:</label>
+                            <input
+                                type="password"
+                                id="newPassword"
+                                name="newPassword"
+                                value={formData.newPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="confirmPassword">Confirm New Password:</label>
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <button type="submit">Update Password</button>
+                    </form>
+                    {messageChange && <p className="success-message">{messageChange}</p>}
+                    {errorChange && <p className="error-message">{errorChange}</p>}
+                </div>
+                <h3>
+                    <button onClick={handleDelete} className="delete-button">
+                        Delete My Account
+                    </button>
 
-            <div className="update-password-container">
-                <h2>Update Password</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="oldPassword">Old Password:</label>
-                        <input
-                            type="password"
-                            id="oldPassword"
-                            name="oldPassword"
-                            value={formData.oldPassword}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="newPassword">New Password:</label>
-                        <input
-                            type="password"
-                            id="newPassword"
-                            name="newPassword"
-                            value={formData.newPassword}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="confirmPassword">Confirm New Password:</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            value={formData.confirmPassword}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <button type="submit">Update Password</button>
-                </form>
-                {messageChange && <p className="success-message">{messageChange}</p>}
-                {errorChange && <p className="error-message">{errorChange}</p>}
+                    {messageDelete && <p className="success-message">{messageDelete}</p>}
+                    {errorDelete && <p className="error-message">{errorDelete}</p>}
+                </h3>
             </div>
         </main>
     );

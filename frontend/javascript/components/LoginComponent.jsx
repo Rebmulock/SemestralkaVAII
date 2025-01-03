@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const LoginComponent = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -35,12 +37,17 @@ const LoginComponent = () => {
         window.location.reload();
     }
 
+    const handleProfileRedirect = () => {
+        navigate("/profile");
+    }
+
     return (
         <div>
             {localStorage.getItem('refresh') !== null ? (
                 <div className="menu-option">
                     <b>{localStorage.getItem("username")}</b>
                     <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleProfileRedirect}>Profile</button>
                 </div>
             ) : (
                 <form className="menu-option" onSubmit={handleLogin}>

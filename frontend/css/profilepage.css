@@ -1,0 +1,26 @@
+main {
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav-break {
+  height: 4px;
+  width: 90%;
+
+  margin-bottom: 1rem;
+
+  border-radius: 15px;
+
+  background: #550a3cff;
+}
+
+.profile-container {
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
