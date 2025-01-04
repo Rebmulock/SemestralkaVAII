@@ -64,3 +64,12 @@ class DeleteContentBlock(generics.RetrieveDestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return ContentBlock.objects.filter(author=user)
+
+
+class GetUserProfile(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = (IsAuthenticated,)
+    queryset = User.objects.all()
+
+    def get_object(self):
+        return self.request.user
