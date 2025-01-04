@@ -1,10 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../css/profilepage.css';
 import {sendApiRequest} from "../javascript/ApiRequest.jsx";
 
 const ProfilePage = () => {
+    const [userData, setUserData] = useState(null);
     const [messageDelete, setMessageDelete] = useState(null);
     const [errorDelete, setErrorDelete] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect( () => {
+        if (localStorage.getItem('refresh') === null) {
+            window.location.href = '/';
+        } else {
+            fetch('http://127.0.0.1:8000/api/user/', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('access'),
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch user profile.');
+                    }
+                    return response.json();
+                })
+                .then(data => setUserData(data))
+                .catch(err => setError(err.message));
+        }
+    }, [])
 
     const handleDelete = async () => {
         setMessageDelete(null);
@@ -25,7 +48,7 @@ const ProfilePage = () => {
             window.location.href = '/';
 
         } catch (err) {
-            setErrorDelete("An error occurred while deleting your account.");
+            setErrorDelete(err.message);
         }
     };
 
@@ -71,9 +94,13 @@ const ProfilePage = () => {
                 setFormData({ oldPassword: '', newPassword: '', confirmPassword: '' });
             }
         } catch (err) {
-            setErrorChange("An error occurred while updating the password.");
+            setErrorChange(err.message);
         }
     };
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
     return (
         <main>
@@ -81,10 +108,10 @@ const ProfilePage = () => {
             <p className="main-text">Profile Page</p>
 
             <div className="profile-container">
-                <h3>First Name</h3>
-                <h3>Last Name</h3>
-                <h3>Username</h3>
-                <h3>E-mail</h3>
+                <h3>First Name: {userData.first_name}</h3>
+                <h3>Last Name: {userData.last_name}</h3>
+                <h3>Username: {userData.username}</h3>
+                <h3>E-mail: {userData.email}</h3>
                 <div className="update-password-container">
                     <h3>Update Password</h3>
                     <form onSubmit={handleSubmit}>
