@@ -3,6 +3,9 @@ import { sendApiRequest } from '../ApiRequest.jsx';
 
 const Register = () => {
     const [formData, setFormData] = useState({
+        first_name: '',
+        last_name: '',
+        email: '',
         username: '',
         password: '',
         confirmPassword: '',
@@ -33,6 +36,9 @@ const Register = () => {
                 'http://127.0.0.1:8000/api/register/',
                 'POST',
                 {
+                    first_name: formData.first_name,
+                    last_name: formData.last_name,
+                    email: formData.email,
                     username: formData.username,
                     password: formData.password,
                     confirm_password: formData.confirmPassword,
@@ -42,7 +48,15 @@ const Register = () => {
 
             if (response) {
                 setMessage("User registered successfully!");
-                setFormData({ username: '', password: '', confirmPassword: '' });
+                setFormData({
+                    first_name: '',
+                    last_name: '',
+                    email: '',
+                    username: '',
+                    password: '',
+                    confirmPassword: '',
+                    }
+                );
             }
         } catch (err) {
             setError("An error occurred during registration.");
@@ -55,6 +69,39 @@ const Register = () => {
                 <div className="menu-option">
                     <h2>Signup</h2>
                     <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="first_name">First Name:</label>
+                            <input
+                                type="text"
+                                id="first_name"
+                                name="first_name"
+                                value={formData.first_name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="last_name">Last Name:</label>
+                            <input
+                                type="text"
+                                id="last_name"
+                                name="last_name"
+                                value={formData.last_name}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="email">E-mail:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
                         <div>
                             <label htmlFor="username">Username:</label>
                             <input
