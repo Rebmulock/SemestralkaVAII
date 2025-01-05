@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginComponent = () => {
+const LoginComponent = ({setHaveAccount}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -76,11 +77,23 @@ const LoginComponent = () => {
 
                     {error && <p style={{color: "red"}}>{error}</p>}
                     <button type="submit">Login</button>
+
+                    Don&apos;t have an account yet?
+                    <a className="login-register-switch" onClick={(e) => {
+                    e.preventDefault();
+                    setHaveAccount();
+                    }}>
+                        Sign up here
+                    </a>
                 </form>
                 )
             }
         </div>
     )
+};
+
+LoginComponent.propTypes = {
+    setHaveAccount: PropTypes.func.isRequired,
 };
 
 export default LoginComponent;

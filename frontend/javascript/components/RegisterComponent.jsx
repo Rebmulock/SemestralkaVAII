@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { sendApiRequest } from '../ApiRequest.jsx';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ({setHaveAccount}) => {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -67,7 +68,7 @@ const Register = () => {
         <div>
             {localStorage.getItem('refresh') !== null ? null : (
                 <form className="menu-option" onSubmit={handleSubmit}>
-                    <h2>Signup</h2>
+                    <h2>Sign up</h2>
                     <div className="menu-option-group">
                         <label htmlFor="first_name">First Name:</label>
                         <input
@@ -138,12 +139,23 @@ const Register = () => {
                     {error && <p className="error-message">{error}</p>}
 
                     <button type="submit">Register</button>
+                    Already have an account?
+                    <a className="login-register-switch" onClick={(e) => {
+                    e.preventDefault();
+                    setHaveAccount(true);
+                    }}>
+                        Sign in here
+                    </a>
                 </form>
             )
             }
         </div>
 
     );
+};
+
+Register.propTypes = {
+    setHaveAccount: PropTypes.func.isRequired,
 };
 
 export default Register;

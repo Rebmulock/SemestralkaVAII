@@ -78,3 +78,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+.login-register-switch {
+    color: white;
+    transition: color 0.1s ease;
+}
+
+.login-register-switch:hover {
+    color: rgb(190, 190, 190);
+}
