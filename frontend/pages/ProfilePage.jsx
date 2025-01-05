@@ -95,6 +95,10 @@ const ProfilePage = () => {
         return <div>Error: {error}</div>;
     }
 
+    if (!userData) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <main>
             <div className="nav-break"></div>
