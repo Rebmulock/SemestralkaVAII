@@ -51,18 +51,21 @@ const LoginComponent = () => {
                 </div>
             ) : (
                 <form className="menu-option" onSubmit={handleLogin}>
-                    <div>
-                        <label>Username</label>
-                        <label>Password</label>
-                    </div>
+                    <h2>
+                        Sign in
+                    </h2>
 
-                    <div>
+                    <div className="menu-option-group">
+                        <label>Username:</label>
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
                         />
+                    </div>
+                    <div className="menu-option-group">
+                        <label>Password:</label>
                         <input
                             type="password"
                             value={password}

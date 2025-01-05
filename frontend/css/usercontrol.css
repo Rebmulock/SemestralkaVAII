@@ -41,6 +41,10 @@
     bottom: 1rem;
     right: 6rem;
 
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
     transition: right 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
@@ -52,11 +56,12 @@
 }
 
 .menu-option {
-    width: auto;
+    width: max-content;
 
     padding: 1rem;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -65,4 +70,11 @@
 
     background: #550a3cff;
     color: white;
+}
+
+.menu-option-group {
+    width: 21rem;
+
+    display: flex;
+    justify-content: space-between;
 }
