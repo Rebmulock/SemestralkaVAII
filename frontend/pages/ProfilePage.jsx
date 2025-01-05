@@ -8,25 +8,18 @@ const ProfilePage = () => {
     const [errorDelete, setErrorDelete] = useState(null);
     const [error, setError] = useState(null);
 
-    useEffect( () => {
-        if (localStorage.getItem('refresh') === null) {
-            window.location.href = '/';
-        } else {
-            fetch('http://127.0.0.1:8000/api/user/', {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('access'),
-                }
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch user profile.');
-                    }
-                    return response.json();
-                })
-                .then(data => setUserData(data))
-                .catch(err => setError(err.message));
-        }
+        useEffect( () => {
+        const fetchUserProfile = async () => {
+            try {
+                const data = await sendApiRequest('http://127.0.0.1:8000/api/user/', 'GET');
+                setUserData(data);
+            } catch (err) {
+                setError('Failed to load user profile');
+                console.error('Error loading user profile:', err);
+            }
+        };
+
+        void fetchUserProfile();
     }, [])
 
     const handleDelete = async () => {
