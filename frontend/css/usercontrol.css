@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.user-control a {
+.user-control-button {
     height: 100%;
     width: 100%;
 
@@ -21,6 +21,7 @@
     justify-content: center;
 
     border-radius: 25px;
+    outline: 4px solid white;
 
     background: #550a3cff;
 }
@@ -86,4 +87,10 @@
 
 .login-register-switch:hover {
     color: rgb(190, 190, 190);
+}
+
+.menu-option-logged {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }

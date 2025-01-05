@@ -46,9 +46,11 @@ const LoginComponent = ({setHaveAccount}) => {
         <div>
             {localStorage.getItem('refresh') !== null ? (
                 <div className="menu-option">
-                    <b>{localStorage.getItem("username")}</b>
-                    <button onClick={handleLogout}>Logout</button>
-                    <button onClick={handleProfileRedirect}>Profile</button>
+                    <div className="menu-option-logged">
+                        <b>{localStorage.getItem("username")}</b>
+                        <button onClick={handleProfileRedirect}>Profile</button>
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
                 </div>
             ) : (
                 <form className="menu-option" onSubmit={handleLogin}>

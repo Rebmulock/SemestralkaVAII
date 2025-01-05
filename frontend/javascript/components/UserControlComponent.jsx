@@ -27,7 +27,7 @@ const UserControlComponent = () => {
                     <LoginComponent className="menu-option" setHaveAccount={setHaveAccount}/> :
                     <RegisterComponent className="menu-option" setHaveAccount={setHaveAccount}/>}
             </div>
-            <a onMouseDown={handleMouseDown}
+            <a className="user-control-button" onMouseDown={handleMouseDown}
                onMouseUp={handleMouseUp}
                style={{transform: isPressed ? 'scale(0.9)' : 'scale(1.0)',}}
                onClick={toggleMenu}>
