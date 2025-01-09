@@ -41,7 +41,7 @@ const ImagePage = () => {
             const response = await sendApiRequest(
                 "http://127.0.0.1:8000/api/blueprint/",
                 'POST',
-                data,
+                formData,
                 false
             );
 
