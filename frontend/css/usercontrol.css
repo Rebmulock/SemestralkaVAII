@@ -11,7 +11,7 @@
     justify-content: center;
 }
 
-.user-control a {
+.user-control-button {
     height: 100%;
     width: 100%;
 
@@ -21,6 +21,7 @@
     justify-content: center;
 
     border-radius: 25px;
+    outline: 4px solid white;
 
     background: #550a3cff;
 }
@@ -41,6 +42,10 @@
     bottom: 1rem;
     right: 6rem;
 
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
     transition: right 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     pointer-events: none;
@@ -52,11 +57,12 @@
 }
 
 .menu-option {
-    width: auto;
+    width: max-content;
 
     padding: 1rem;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
@@ -65,4 +71,26 @@
 
     background: #550a3cff;
     color: white;
+}
+
+.menu-option-group {
+    width: 21rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-register-switch {
+    color: white;
+    transition: color 0.1s ease;
+}
+
+.login-register-switch:hover {
+    color: rgb(190, 190, 190);
+}
+
+.menu-option-logged {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }

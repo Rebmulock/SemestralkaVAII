@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { sendApiRequest } from '../ApiRequest.jsx';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+const Register = ({setHaveAccount}) => {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -66,85 +67,95 @@ const Register = () => {
     return (
         <div>
             {localStorage.getItem('refresh') !== null ? null : (
-                <div className="menu-option">
-                    <h2>Signup</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label htmlFor="first_name">First Name:</label>
-                            <input
-                                type="text"
-                                id="first_name"
-                                name="first_name"
-                                value={formData.first_name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="last_name">Last Name:</label>
-                            <input
-                                type="text"
-                                id="last_name"
-                                name="last_name"
-                                value={formData.last_name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="email">E-mail:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="username">Username:</label>
-                            <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                value={formData.username}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="confirmPassword">Confirm Password:</label>
-                            <input
-                                type="password"
-                                id="confirmPassword"
-                                name="confirmPassword"
-                                value={formData.confirmPassword}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <button type="submit">Register</button>
-                    </form>
-                    {message && <p className="success-message">{message}</p>}
+                <form className="menu-option" onSubmit={handleSubmit}>
+                    <h2>Sign up</h2>
+                    <div className="menu-option-group">
+                        <label htmlFor="first_name">First Name:</label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            value={formData.first_name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="menu-option-group">
+                        <label htmlFor="last_name">Last Name:</label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            value={formData.last_name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="menu-option-group">
+                        <label htmlFor="email">E-mail:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="menu-option-group">
+                        <label htmlFor="username">Username:</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="menu-option-group">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className="menu-option-group">
+                        <label htmlFor="confirmPassword">Confirm Password:</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            value={formData.confirmPassword}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                     {message && <p className="success-message">{message}</p>}
                     {error && <p className="error-message">{error}</p>}
-                </div>
+
+                    <button type="submit">Register</button>
+                    Already have an account?
+                    <a className="login-register-switch" onClick={(e) => {
+                    e.preventDefault();
+                    setHaveAccount(true);
+                    }}>
+                        Sign in here
+                    </a>
+                </form>
             )
             }
         </div>
 
     );
+};
+
+Register.propTypes = {
+    setHaveAccount: PropTypes.func.isRequired,
 };
 
 export default Register;

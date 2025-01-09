@@ -6,6 +6,7 @@ import RegisterComponent from "./RegisterComponent.jsx";
 const UserControlComponent = () => {
     const [isPressed, setIsPressed] = useState(false);
     const [openMenu, setOpenMenu] = React.useState(false);
+    const [haveAccount, setHaveAccount] = useState(true);
 
     const handleMouseDown = () => {
         setIsPressed(true);
@@ -22,10 +23,11 @@ const UserControlComponent = () => {
     return (
         <div className="user-control">
             <div className={`user-control-menu ${openMenu ? 'open' : ''}`}>
-                <LoginComponent className="menu-option" />
-                <RegisterComponent className="menu-option" />
+                { haveAccount ?
+                    <LoginComponent className="menu-option" setHaveAccount={setHaveAccount}/> :
+                    <RegisterComponent className="menu-option" setHaveAccount={setHaveAccount}/>}
             </div>
-            <a onMouseDown={handleMouseDown}
+            <a className="user-control-button" onMouseDown={handleMouseDown}
                onMouseUp={handleMouseUp}
                style={{transform: isPressed ? 'scale(0.9)' : 'scale(1.0)',}}
                onClick={toggleMenu}>

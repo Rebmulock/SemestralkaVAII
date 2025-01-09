@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginComponent = () => {
+const LoginComponent = ({setHaveAccount}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -45,24 +46,29 @@ const LoginComponent = () => {
         <div>
             {localStorage.getItem('refresh') !== null ? (
                 <div className="menu-option">
-                    <b>{localStorage.getItem("username")}</b>
-                    <button onClick={handleLogout}>Logout</button>
-                    <button onClick={handleProfileRedirect}>Profile</button>
+                    <div className="menu-option-logged">
+                        <b>{localStorage.getItem("username")}</b>
+                        <button onClick={handleProfileRedirect}>Profile</button>
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
                 </div>
             ) : (
                 <form className="menu-option" onSubmit={handleLogin}>
-                    <div>
-                        <label>Username</label>
-                        <label>Password</label>
-                    </div>
+                    <h2>
+                        Sign in
+                    </h2>
 
-                    <div>
+                    <div className="menu-option-group">
+                        <label>Username:</label>
                         <input
                             type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
                         />
+                    </div>
+                    <div className="menu-option-group">
+                        <label>Password:</label>
                         <input
                             type="password"
                             value={password}
@@ -73,11 +79,23 @@ const LoginComponent = () => {
 
                     {error && <p style={{color: "red"}}>{error}</p>}
                     <button type="submit">Login</button>
+
+                    Don&apos;t have an account yet?
+                    <a className="login-register-switch" onClick={(e) => {
+                    e.preventDefault();
+                    setHaveAccount();
+                    }}>
+                        Sign up here
+                    </a>
                 </form>
                 )
             }
         </div>
     )
+};
+
+LoginComponent.propTypes = {
+    setHaveAccount: PropTypes.func.isRequired,
 };
 
 export default LoginComponent;
