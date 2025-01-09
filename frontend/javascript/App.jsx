@@ -7,6 +7,7 @@ import UserControlComponent from "./components/UserControlComponent.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import NotFound from "../pages/NotFound.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
+import ImagePage from "../pages/Image.jsx";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path="/blueprint" element={<BlueprintPage />} />
                 <Route path="/scaling" element={<ScalingPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/content-block" element={<ImagePage />}/>
                 <Route path="*" element={<NotFound /> } />
             </Routes>
             <UserControlComponent />
