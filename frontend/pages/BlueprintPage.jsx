@@ -1,8 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ContentBlockComponent from "../javascript/components/ContentBlockComponent.jsx";
 import "../css/blueprint.css"
+import {sendApiRequest} from "../javascript/ApiRequest.jsx";
 
 const BlueprintPage = () => {
+    const [contentBlocks, setContentBlocks] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await sendApiRequest(
+                    "http://127.0.0.1:8000/api/blueprint/",
+                    "GET");
+                setContentBlocks(response);
+                console.log(response);
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+
+        void fetchData();
+    }, [])
+
+    const groupBlocks = (blocks, groupSize) => {
+        let groups = [];
+
+        if (!blocks) {
+            return [];
+        }
+
+        for (let i = 0; i < blocks.length; i += groupSize) {
+            groups.push(blocks.slice(i, i + groupSize));
+        }
+
+        return groups;
+    }
+
+    const groupedBlocks = groupBlocks(contentBlocks, 3);
+
     return (
         <>
             <div className="first-main main">
@@ -10,11 +45,13 @@ const BlueprintPage = () => {
 
                 <p className="main-text">Chapter First: Learn from scratch</p>
 
-                <ContentBlockComponent/>
-
-                <ContentBlockComponent/>
-
-                <ContentBlockComponent/>
+                {groupedBlocks.map((group, index) => (
+                    <div key={index} className="content-group">
+                        {group.map((contentBlock, blockIndex) => (
+                            <ContentBlockComponent key={blockIndex} data={contentBlock} />
+                        ))}
+                    </div>
+                ))}
             </div>
 
             <div className="main-info main">
@@ -39,10 +76,6 @@ const BlueprintPage = () => {
                 <div className="nav-break"></div>
 
                 <p className="main-text">Chapter Second: OHLC</p>
-
-                <ContentBlockComponent/>
-
-                <ContentBlockComponent/>
             </div>
         </>
     )
