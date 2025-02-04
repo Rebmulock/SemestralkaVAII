@@ -11,7 +11,9 @@ const BlueprintPage = () => {
             try {
                 const response = await sendApiRequest(
                     "http://127.0.0.1:8000/api/blueprint/",
-                    "GET");
+                    "GET",
+                    null,
+                    true);
                 setContentBlocks(response);
                 console.log(response);
             } catch (error) {

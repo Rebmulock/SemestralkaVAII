@@ -43,15 +43,17 @@ class DeleteUserView(generics.DestroyAPIView):
         user.delete()
         return Response({"detail": "User account deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
 
-
-
 class CreateContentBlock(generics.ListCreateAPIView):
     serializer_class = ContentBlockSerializer
-    permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        user = self.request.user
-        return ContentBlock.objects.filter(author=user)
+        return ContentBlock.objects.all()
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [AllowAny()]
+
+        return [IsAuthenticated()]
 
     def perform_create(self, serializer):
         if serializer.is_valid():

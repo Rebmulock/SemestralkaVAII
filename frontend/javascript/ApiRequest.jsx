@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const sendApiRequest = async (url, method = "GET", data = null, register = false) => {
+export const sendApiRequest = async (url, method = "GET", data = null, noAuth = false) => {
     try {
         let response = null;
 
-        if (!register) {
+        if (!noAuth) {
             const refreshToken = localStorage.getItem("refresh");
 
             if (!refreshToken) {
