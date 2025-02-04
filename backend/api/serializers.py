@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import ContentBlock
+from .models import ContentBlock, UserFeedback
+
 
 class UserSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True, required=True)
@@ -39,3 +40,8 @@ class ContentBlockSerializer(serializers.ModelSerializer):
         model = ContentBlock
         fields = '__all__'
         extra_kwargs = {'author': {'read_only': True}}
+
+class UserFeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserFeedback
+        fields = '__all__'

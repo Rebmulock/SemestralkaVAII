@@ -3,8 +3,10 @@ from django.contrib.auth.hashers import make_password
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .serializers import ContentBlockSerializer, UserSerializer, PasswordUpdateSerializer
-from .models import ContentBlock
+from rest_framework.views import APIView
+
+from .serializers import ContentBlockSerializer, UserSerializer, PasswordUpdateSerializer, UserFeedbackSerializer
+from .models import ContentBlock, UserFeedback
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -73,3 +75,12 @@ class GetUserProfile(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+class UserFeedbackView(generics.ListCreateAPIView):
+    queryset = UserFeedback.objects.all()
+    serializer_class = UserFeedbackSerializer
+
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [IsAuthenticated()]
+        return [AllowAny()]
