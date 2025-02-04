@@ -15,4 +15,5 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/blueprint/', views.CreateContentBlock.as_view(), name='blueprint'),
     path('api/blueprint/delete/<int:pk>', views.DeleteContentBlock.as_view(), name='delete_content_block'),
+    path('api/user/feedback', views.UserFeedbackView.as_view(), name='feedback'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
