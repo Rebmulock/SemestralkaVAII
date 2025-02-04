@@ -1,6 +1,6 @@
 import React from "react";
-import FormComponent from "../javascript/components/FormComponent.jsx";
-import "../css/homepage.css"
+import FormComponent from "../components/FormComponent.jsx";
+import "../../css/homepage.css"
 
 const HomePage = () => {
     return (

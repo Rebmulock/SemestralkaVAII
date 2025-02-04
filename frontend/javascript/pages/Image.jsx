@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import {sendApiRequest} from "../javascript/ApiRequest.jsx";
-import "../css/imagepage.css";
+import {sendApiRequest} from "../ApiRequest.jsx";
+import "../../css/imagepage.css";
 
 const ImagePage = () => {
     const [data, setData] = useState({

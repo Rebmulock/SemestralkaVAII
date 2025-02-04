@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "../pages/HomePage.jsx";
-import BlueprintPage from "../pages/BlueprintPage.jsx";
-import ScalingPage from "../pages/ScalingPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import BlueprintPage from "./pages/BlueprintPage.jsx";
+import ScalingPage from "./pages/ScalingPage.jsx";
 import UserControlComponent from "./components/UserControlComponent.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
-import NotFound from "../pages/NotFound.jsx";
-import ProfilePage from "../pages/ProfilePage.jsx";
-import ImagePage from "../pages/Image.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import ImagePage from "./pages/Image.jsx";
 
 const App = () => {
     return (

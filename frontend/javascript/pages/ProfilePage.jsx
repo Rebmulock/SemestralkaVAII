@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import '../css/profilepage.css';
-import {sendApiRequest} from "../javascript/ApiRequest.jsx";
+import '../../css/profilepage.css';
+import {sendApiRequest} from "../ApiRequest.jsx";
 
 const ProfilePage = () => {
     const [userData, setUserData] = useState(null);

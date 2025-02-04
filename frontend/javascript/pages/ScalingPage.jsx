@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import ServiceCardComponent from "../javascript/components/ServiceCardComponent.jsx";
-import "../css/scaling.css"
-import {sendApiRequest} from "../javascript/ApiRequest.jsx";
+import ServiceCardComponent from "../components/ServiceCardComponent.jsx";
+import "../../css/scaling.css"
+import {sendApiRequest} from "../ApiRequest.jsx";
 
 const ScalingPage = () => {
     const [data, setData] = useState({

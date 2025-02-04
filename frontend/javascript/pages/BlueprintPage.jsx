@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import ContentBlockComponent from "../javascript/components/ContentBlockComponent.jsx";
-import "../css/blueprint.css"
-import {sendApiRequest} from "../javascript/ApiRequest.jsx";
+import ContentBlockComponent from "../components/ContentBlockComponent.jsx";
+import "../../css/blueprint.css"
+import {sendApiRequest} from "../ApiRequest.jsx";
 
 const BlueprintPage = () => {
     const [contentBlocks, setContentBlocks] = useState([]);
