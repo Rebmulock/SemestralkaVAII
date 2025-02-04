@@ -24,3 +24,27 @@ main {
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 }
+
+.update-password-container {
+  width: 50%;
+}
+
+.update-password-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.update-password-container form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    word-wrap: break-word;
+  }
+}

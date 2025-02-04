@@ -2,10 +2,6 @@
     height: 4rem;
     min-width: 4rem;
 
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,23 +52,6 @@
     pointer-events: auto;
 }
 
-.menu-option {
-    width: max-content;
-
-    padding: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-
-    border-radius: 25px;
-
-    background: #550a3cff;
-    color: white;
-}
-
 .menu-option-group {
     width: 21rem;
 
@@ -93,4 +72,65 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+@media screen and (min-width: 481px) {
+    .user-control {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .menu-option {
+        width: max-content;
+
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        border-radius: 25px;
+
+        background: #550a3cff;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user-control-menu {
+        right: 0;
+    }
+
+    .menu-option {
+        width: 100vw;
+
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        position: fixed;
+        bottom: 10rem;
+        left: 0;
+
+        border-radius: 25px;
+
+        background: #550a3cff;
+        color: white;
+    }
+
+    .user-control-button {
+        height: 4rem;
+        width: 4rem;
+
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
 }
