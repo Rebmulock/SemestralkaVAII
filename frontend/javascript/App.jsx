@@ -8,6 +8,7 @@ import NavbarComponent from "./components/NavbarComponent.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import ImagePage from "./pages/Image.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
 
 const App = () => {
     return (
@@ -17,8 +18,12 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/blueprint" element={<BlueprintPage />} />
                 <Route path="/scaling" element={<ScalingPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/content-block" element={<ImagePage />}/>
+
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/content-block" element={<ImagePage />}/>
+                </Route>
+
                 <Route path="*" element={<NotFound /> } />
             </Routes>
             <UserControlComponent />
