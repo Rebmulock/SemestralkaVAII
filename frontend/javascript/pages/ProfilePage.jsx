@@ -208,7 +208,7 @@ const ProfilePage = () => {
             {userAuth.is_staff && (
                 <main>
                     <div className="nav-break"></div>
-                    <p className="main-text">User Feedbacks</p>
+                    <p className="main-text">Customer Feedbacks</p>
 
                     <div className="table-container">
                         <table className="feedback-table">
@@ -216,6 +216,7 @@ const ProfilePage = () => {
                             <tr>
                                 <th>ID</th>
                                 <th>Full Name</th>
+                                <th>E-Mail</th>
                                 <th>Message</th>
                             </tr>
                             </thead>
@@ -226,6 +227,7 @@ const ProfilePage = () => {
                                     <tr key={feedback.id}>
                                         <td>{feedback.id}</td>
                                         <td>{feedback.name}</td>
+                                        <td>{feedback.email}</td>
                                         <td>{feedback.message}</td>
                                     </tr>
                                 ))
@@ -238,6 +240,7 @@ const ProfilePage = () => {
                         </table>
                     </div>
 
+                    <p>Refresh Content</p>
                     <button onClick={handleFeedbacks} disabled={loading}>
                         {loading ? "Refreshing..." :
                             <img className="refresh-img" src="../../images/arrows-rotate-solid.svg" alt="refresh"/>}

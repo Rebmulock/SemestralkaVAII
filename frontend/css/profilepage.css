@@ -1,93 +1,110 @@
 main {
-  padding: 1rem;
+    padding: 1rem;
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .nav-break {
-  height: 4px;
-  width: 90%;
+    height: 4px;
+    width: 90%;
 
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 
-  border-radius: 15px;
+    border-radius: 15px;
 
-  background: #550a3cff;
+    background: #550a3cff;
 }
 
 .profile-container {
-  width: 90%;
+    width: 90%;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
 }
 
 .update-password-container {
-  width: 50%;
+    width: 50%;
 }
 
 .update-password-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .update-password-container form div {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .refresh-img {
-  height: 2rem;
-  aspect-ratio: 1/1;
+    height: 2rem;
+    aspect-ratio: 1/1;
 }
 
 .table-container {
-  width: 90%;
+    height: 20rem;
+    width: 90%;
 
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 
-  overflow: auto;
+    overflow-y: scroll;
+
+    border: 5px solid #0c183c;
 }
 
 .feedback-table {
-  width: 100%;
+    width: 100%;
 }
 
 .feedback-table th, .feedback-table td {
-  max-width: min-content;
+    padding: 8px;
 
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border: 1px solid #ffffff;
 }
 
 .feedback-table th {
-  background-color: #0c183c;
-  color: #dddddd;
+    position: sticky;
+    top: 0;
+
+    background-color: #0c183c;
+    color: #dddddd;
+}
+
+.feedback-table td {
+    max-width: 10rem;
+
+    overflow-x: hidden;
+
+    background: #dcdcdc;
 }
 
 button {
-  padding: 0.2rem;
+    padding: 0.2rem;
 
-  border-radius: 15px;
+    border-radius: 15px;
 
-  background: #dddddd;
-  color: #0c183c;
+    background: #dddddd;
+    color: #0c183c;
 }
 
 button:hover {
-  background: #bebebe;
+    background: #bebebe;
 }
 
 @media screen and (max-width: 600px) {
-  .profile-container {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    word-wrap: break-word;
-  }
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        word-wrap: break-word;
+    }
 }
