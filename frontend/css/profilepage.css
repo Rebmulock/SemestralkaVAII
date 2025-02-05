@@ -40,6 +40,49 @@ main {
   justify-content: space-between;
 }
 
+.refresh-img {
+  height: 2rem;
+  aspect-ratio: 1/1;
+}
+
+.table-container {
+  width: 90%;
+
+  margin-bottom: 1rem;
+
+  overflow: auto;
+}
+
+.feedback-table {
+  width: 100%;
+}
+
+.feedback-table th, .feedback-table td {
+  max-width: min-content;
+
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.feedback-table th {
+  background-color: #0c183c;
+  color: #dddddd;
+}
+
+button {
+  padding: 0.2rem;
+
+  border-radius: 15px;
+
+  background: #dddddd;
+  color: #0c183c;
+}
+
+button:hover {
+  background: #bebebe;
+}
+
 @media screen and (max-width: 600px) {
   .profile-container {
     display: flex;

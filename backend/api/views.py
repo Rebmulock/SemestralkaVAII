@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from rest_framework import status, generics
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.views import APIView
 
 from .serializers import ContentBlockSerializer, UserSerializer, PasswordUpdateSerializer, UserFeedbackSerializer
@@ -42,6 +42,15 @@ class DeleteUserView(generics.DestroyAPIView):
         user = self.get_object()
         user.delete()
         return Response({"detail": "User account deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+
+class CheckAuthenticationView(generics.ListAPIView):
+    permission_classes = (AllowAny,)
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        return Response({
+            "authenticated": user.is_authenticated,
+            "is_staff": user.is_staff}, status=status.HTTP_200_OK)
 
 class CreateContentBlock(generics.ListCreateAPIView):
     serializer_class = ContentBlockSerializer
@@ -84,5 +93,5 @@ class UserFeedbackView(generics.ListCreateAPIView):
 
     def get_permissions(self):
         if self.request.method == "GET":
-            return [IsAuthenticated()]
+            return [IsAdminUser()]
         return [AllowAny()]
