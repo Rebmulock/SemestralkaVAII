@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { sendApiRequest } from '../ApiRequest.jsx';
 import PropTypes from 'prop-types';
+import {validateLettersOnly, validateUsername} from "../InputValidator.jsx";
 
 const Register = ({setHaveAccount}) => {
     const [formData, setFormData] = useState({
@@ -14,11 +15,29 @@ const Register = ({setHaveAccount}) => {
 
     const [message, setMessage] = useState(null);
     const [error, setError] = useState(null);
+    const [usernameError, setUsernameError] = useState(null);
+    const [nameError, setNameError] = useState(null);
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+        setNameError(null);
+        setUsernameError(null);
+
+        if (name === "first_name" || name === "last_name") {
+            if (!validateLettersOnly(value)) {
+                setNameError("Please enter valid name only!")
+            }
+        }
+
+        if (name === "username") {
+            if (!validateUsername(value)) {
+                setUsernameError("Please use only [a-z, A-Z, 0-9, ., _]")
+            }
+        }
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
     };
 
@@ -29,6 +48,11 @@ const Register = ({setHaveAccount}) => {
 
         if (formData.password !== formData.confirmPassword) {
             setError("Passwords do not match.");
+            return;
+        }
+
+        if (usernameError || nameError) {
+            setError("Please fix the errors before submitting.");
             return;
         }
 
@@ -60,12 +84,14 @@ const Register = ({setHaveAccount}) => {
                 );
             }
         } catch (err) {
-            setError("An error occurred during registration.");
+            setError(err);
         }
     };
 
     return (
         <div>
+            {//TODO: replace localStorage -> /api/auth
+                }
             {localStorage.getItem('refresh') !== null ? null : (
                 <form className="menu-option" onSubmit={handleSubmit}>
                     <h2>Sign up</h2>
@@ -91,6 +117,7 @@ const Register = ({setHaveAccount}) => {
                             required
                         />
                     </div>
+                    {nameError && <p className="error-message">{nameError}</p>}
                     <div className="menu-option-group">
                         <label htmlFor="email">E-mail:</label>
                         <input
@@ -113,6 +140,7 @@ const Register = ({setHaveAccount}) => {
                             required
                         />
                     </div>
+                    {usernameError && <p className="error-message">{usernameError}</p>}
                     <div className="menu-option-group">
                         <label htmlFor="password">Password:</label>
                         <input
@@ -135,7 +163,7 @@ const Register = ({setHaveAccount}) => {
                             required
                         />
                     </div>
-                     {message && <p className="success-message">{message}</p>}
+                    {message && <p className="success-message">{message}</p>}
                     {error && <p className="error-message">{error}</p>}
 
                     <button type="submit">Register</button>

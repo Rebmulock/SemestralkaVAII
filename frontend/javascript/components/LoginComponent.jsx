@@ -2,40 +2,66 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {validateUsername} from "../InputValidator.jsx";
 
 const LoginComponent = ({setHaveAccount}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loggedIn, setIsLoggedIn] = useState(null);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    const handleUsernameChange = (e) => {
+        const value = e.target.value;
+        setUsername(value);
+
+        if(!validateUsername(value)) {
+            setError("Invalid username!")
+        } else {
+            setError("");
+        }
+    }
+
+    const handlePasswordChange = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+
+        if (error) {
+            setError("");
+        }
+    }
+
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        if (error) {
+            return;
+        }
+
         try {
             const response = await axios.post("http://localhost:8000/api/token/", {
                 username,
                 password,
             });
             const {refresh, access} = response.data;
-            console.log(response.data);
             localStorage.setItem("username", username);
             localStorage.setItem("refresh", refresh);
             localStorage.setItem("access", access);
+            setIsLoggedIn(true);
             setError("");
+            setUsername("");
+            setPassword("");
         } catch (err) {
             console.log(err);
             setError("Invalid credentials");
         }
-
-        window.location.reload();
     };
 
     const handleLogout = () => {
         localStorage.removeItem("username");
         localStorage.removeItem("refresh");
         localStorage.removeItem("access");
-        console.log(localStorage.getItem("refresh"));
-        window.location.reload();
+        setIsLoggedIn(false);
     }
 
     const handleProfileRedirect = () => {
@@ -44,7 +70,7 @@ const LoginComponent = ({setHaveAccount}) => {
 
     return (
         <div>
-            {localStorage.getItem('refresh') !== null ? (
+            {loggedIn ? (
                 <div className="menu-option">
                     <div className="menu-option-logged">
                         <b>{localStorage.getItem("username")}</b>
@@ -63,7 +89,7 @@ const LoginComponent = ({setHaveAccount}) => {
                         <input
                             type="text"
                             value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            onChange={handleUsernameChange}
                             required
                         />
                     </div>
@@ -72,7 +98,7 @@ const LoginComponent = ({setHaveAccount}) => {
                         <input
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={handlePasswordChange}
                             required
                         />
                     </div>

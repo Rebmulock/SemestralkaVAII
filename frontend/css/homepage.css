@@ -32,3 +32,8 @@ body main {
 
     color: #0c183c;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}
