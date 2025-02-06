@@ -20,7 +20,6 @@ const LoginComponent = ({setHaveAccount}) => {
                             null,
                             false);
 
-                console.log(authData.data.authenticated)
                 setIsAuthenticated(authData.data.authenticated);
             } catch (err) {
                 console.error('Error fetching authorisation:', err);
