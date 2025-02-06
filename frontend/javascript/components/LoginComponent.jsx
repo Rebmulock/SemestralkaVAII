@@ -62,6 +62,7 @@ const LoginComponent = ({setHaveAccount}) => {
         localStorage.removeItem("refresh");
         localStorage.removeItem("access");
         setIsLoggedIn(false);
+        navigate("/")
     }
 
     const handleProfileRedirect = () => {
