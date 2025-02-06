@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {validateUsername} from "../InputValidator.jsx";
+import {sendApiRequest} from "../ApiRequest.jsx";
 
 const LoginComponent = ({setHaveAccount}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [loggedIn, setIsLoggedIn] = useState(null);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+    const fetchAuthentication = async () => {
+            try {
+                const authData = await sendApiRequest(
+                            'http://127.0.0.1:8000/api/auth',
+                            'GET',
+                            null,
+                            false);
+
+                setIsAuthenticated(authData.authenticated);
+            } catch (err) {
+                console.error('Error fetching authorisation:', err);
+            }
+    }
+
+    useEffect(() => {
+        void fetchAuthentication();
+    }, [])
 
     const handleUsernameChange = (e) => {
         const value = e.target.value;
@@ -47,22 +66,37 @@ const LoginComponent = ({setHaveAccount}) => {
             localStorage.setItem("username", username);
             localStorage.setItem("refresh", refresh);
             localStorage.setItem("access", access);
-            setIsLoggedIn(true);
             setError("");
             setUsername("");
             setPassword("");
+
+            await fetchAuthentication();
         } catch (err) {
             console.log(err);
             setError("Invalid credentials");
         }
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("username");
-        localStorage.removeItem("refresh");
-        localStorage.removeItem("access");
-        setIsLoggedIn(false);
-        navigate("/")
+    const handleLogout = async () => {
+        try {
+            await axios.post(
+                "http://localhost:8000/api/token/destroy/",
+                {
+                    refresh: localStorage.getItem("refresh")
+                }
+            )
+
+            localStorage.removeItem("username");
+            localStorage.removeItem("refresh");
+            localStorage.removeItem("access");
+
+            setIsAuthenticated(false);
+
+            navigate("/")
+        } catch (err) {
+            console.error("Error logging out: ", err);
+        }
+
     }
 
     const handleProfileRedirect = () => {
@@ -71,7 +105,7 @@ const LoginComponent = ({setHaveAccount}) => {
 
     return (
         <div>
-            {loggedIn ? (
+            {isAuthenticated ? (
                 <div className="menu-option">
                     <div className="menu-option-logged">
                         <b>{localStorage.getItem("username")}</b>
