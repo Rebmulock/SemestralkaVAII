@@ -1,0 +1,12 @@
+.error-h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+
+    color: #0c183c;
+}
