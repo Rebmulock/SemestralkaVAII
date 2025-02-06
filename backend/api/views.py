@@ -113,3 +113,18 @@ class UserFeedbackView(generics.ListCreateAPIView):
         if self.request.method == "GET":
             return [IsAdminUser()]
         return [AllowAny()]
+
+class AnalysisBlockView(generics.ListCreateAPIView):
+    serializer_class = AnalysisBlockSerializer
+    queryset = AnalysisBlock.objects.all()
+
+    def get_permissions(self):
+        if self.request.method == "POST":
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save(author=self.request.user)
+        else:
+            print(serializer.errors)

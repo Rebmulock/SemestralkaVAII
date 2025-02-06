@@ -1,0 +1,39 @@
+.main-body {
+    height: 94rem;
+    width: 100%;
+
+
+    background: #550a3c;
+}
+
+.main-container {
+    height: 100%;
+    width: auto;
+
+    margin-left: 6rem;
+    padding-top: 6rem;
+
+    border-radius: 15px 0;
+
+    background: #bebebe;
+}
+.container-title {
+    margin-bottom: 6rem;
+
+    align-self: center;
+
+    font-family: "Perpetua Titling MT", serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+
+    color: #0c183c;
+}
+
+.analysis-block {
+    padding: 3rem;
+}
+
+.analysis-image {
+    max-width: 80rem;
+}

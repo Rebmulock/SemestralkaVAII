@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import {sendApiRequest} from "../ApiRequest.jsx";
 import "../../css/contentblockpage.css";
-import {validateLettersOnly} from "../InputValidator.jsx";
+import {validateUsername} from "../InputValidator.jsx";
 
-const CreateContentBlockPage = () => {
-    const [data, setData] = useState({
-        title: '',
-        content: '',
+const CreateAnalysisBlockPage = () => {
+     const [data, setData] = useState({
+        instrument: '',
         image_url: '',
         image_alt: '',
     });
@@ -22,8 +21,8 @@ const CreateContentBlockPage = () => {
             [e.target.name]: e.target.value,
         })
 
-        if(!validateLettersOnly(e.target.value)) {
-            setError("Letters only!")
+        if(!validateUsername(e.target.value)) {
+            setError("Letters, numbers and underscores only!")
         } else {
             setError(null);
         }
@@ -39,15 +38,17 @@ const CreateContentBlockPage = () => {
         e.preventDefault();
         setError(null);
 
+        const currentDate = new Date().toISOString().split('T')[0];
+
         const formData = new FormData();
-        formData.append('title', data.title);
-        formData.append('content', data.content);
+        formData.append('instrument', data.instrument);
+        formData.append('date', currentDate);
         formData.append('image', e.target.image.files[0]);
         formData.append('image_alt', data.image_alt);
 
         try {
             const response = await sendApiRequest(
-                "http://127.0.0.1:8000/api/blueprint/",
+                "http://127.0.0.1:8000/api/analysis-blocks",
                 'POST',
                 formData,
                 false
@@ -55,8 +56,7 @@ const CreateContentBlockPage = () => {
 
             if (response.status >= 200 && response.status < 300) {
                 setData({
-                    title: '',
-                    content: '',
+                    instrument: '',
                     image_url: '',
                     image_alt: '',
                 })
@@ -74,11 +74,11 @@ const CreateContentBlockPage = () => {
             <form className="content-block-form" onSubmit={handleSubmit}>
                 <div>
                     <div className="content-block-title">
-                        <label><h2>Title</h2></label>
+                        <label><h2>Instrument</h2></label>
                         <input
                             type="text"
-                            name="title"
-                            value={data.title}
+                            name="instrument"
+                            value={data.instrument}
                             onChange={handleChange}
                             maxLength={100}
                             required
@@ -116,15 +116,6 @@ const CreateContentBlockPage = () => {
                                 onChange={handleChange}
                             />
                         </div>
-
-                        <div className="content-text">
-                            <label>Content</label>
-                            <textarea
-                                name="content"
-                                value={data.content}
-                                onChange={handleChange}
-                            />
-                        </div>
                     </div>
                 </div>
 
@@ -136,4 +127,4 @@ const CreateContentBlockPage = () => {
     )
 }
 
-export default CreateContentBlockPage;
+export default CreateAnalysisBlockPage;

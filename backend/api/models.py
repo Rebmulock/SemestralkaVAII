@@ -22,3 +22,15 @@ class UserFeedback(models.Model):
 
     def __str__(self):
         return self.name
+
+class AnalysisBlock(models.Model):
+    instrument = models.CharField(max_length=100)
+    date = models.DateField()
+    image = models.FileField(upload_to="analysis/", null=True, blank=True, validators=[
+        FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])
+    ])
+    image_alt = models.CharField(max_length=30)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="analysis_blocks")
+
+    def __str__(self):
+        return self.instrument + " " + self.date

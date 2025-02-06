@@ -110,6 +110,10 @@ const LoginComponent = ({setHaveAccount}) => {
         navigate("/content-block")
     }
 
+    const handleCreateAnalysis = () => {
+        navigate("/analysis-block")
+    }
+
     return (
         <div>
             {isAuthenticated ? (
@@ -117,7 +121,12 @@ const LoginComponent = ({setHaveAccount}) => {
                     <div className="menu-option-logged">
                         <b>{localStorage.getItem("username")}</b>
                         <button onClick={handleProfileRedirect}>Profile</button>
-                        {isStaff && <button onClick={handleCreateRedirect}>Create</button>}
+                        {isStaff &&
+                            <>
+                                <button onClick={handleCreateRedirect}>Create Content</button>
+                                <button onClick={handleCreateAnalysis}>Create Analysis</button>
+                            </>
+                        }
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>

@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import CreateContentBlockPage from "./pages/CreateContentBlockPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import FreeCoursePage from "./pages/FreeCoursePage.jsx";
+import CreateAnalysisBlockPage from "./pages/CreateAnalysisBlockPage.jsx";
 
 const App = () => {
     return (
@@ -19,9 +21,14 @@ const App = () => {
                 <Route path="/blueprint" element={<BlueprintPage />} />
                 <Route path="/scaling" element={<ScalingPage />} />
 
-                <Route element={<ProtectedRoute />}>
+                <Route element={<ProtectedRoute adminOnly={false}/>}>
                     <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/content-block" element={<CreateContentBlockPage />}/>
+                    <Route path="/free-course" element={<FreeCoursePage />} />
+                </Route>
+
+                <Route element={<ProtectedRoute adminOnly={true}/>}>
+                    <Route path="/content-block" element={<CreateContentBlockPage />} />
+                    <Route path="/analysis-block" element={<CreateAnalysisBlockPage />} />
                 </Route>
 
                 <Route path="*" element={<NotFound /> } />

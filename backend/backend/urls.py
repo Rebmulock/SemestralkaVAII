@@ -20,4 +20,5 @@ urlpatterns = [
     path('api/auth', views.CheckAuthenticationView.as_view(), name='auth'),
     path('api/list/users', views.ListUsersView.as_view(), name='list_users'),
     path('api/update-user-role/<int:pk>', views.UpdateUserRoleView.as_view(), name='update_user_role'),
+    path('api/analysis-blocks', views.AnalysisBlockView.as_view(), name='analysis_blocks'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

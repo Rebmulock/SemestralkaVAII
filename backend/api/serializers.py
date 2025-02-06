@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import ContentBlock, UserFeedback
+from .models import ContentBlock, UserFeedback, AnalysisBlock
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -62,3 +62,9 @@ class UserFeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserFeedback
         fields = '__all__'
+
+class AnalysisBlockSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AnalysisBlock
+        fields = '__all__'
+        extra_kwargs = {'author': {'read_only': True}}

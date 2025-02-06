@@ -1,9 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 import {useEffect, useState} from "react";
 import {sendApiRequest} from "./ApiRequest.jsx";
+import PropTypes from "prop-types";
 
-const ProtectedRoute = () => {
+const ProtectedRoute = ({adminOnly}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isStaff, setIsStaff] = useState(null);
 
     useEffect(() => {
         const fetchAuthentication = async () => {
@@ -15,20 +17,26 @@ const ProtectedRoute = () => {
                             false);
 
                 setIsAuthenticated(authData.data.authenticated);
+                setIsStaff(authData.data.is_staff);
             } catch (err) {
                 console.error('Error fetching authorisation:', err);
                 setIsAuthenticated(false);
+                setIsStaff(false);
             }
         }
 
         void fetchAuthentication();
     }, [])
 
-    if (isAuthenticated === null) {
+    if (isAuthenticated === null || isStaff === null) {
         return <div>Loading...</div>;
     }
 
-    return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
+    return (!isAuthenticated || (adminOnly && !isStaff)) ? <Navigate to="/" replace /> : <Outlet />;
+};
+
+ProtectedRoute.propTypes = {
+    adminOnly: PropTypes.bool.isRequired,
 };
 
 export default ProtectedRoute;
