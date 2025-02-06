@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.views import APIView
 
-from .serializers import ContentBlockSerializer, UserSerializer, PasswordUpdateSerializer, UserFeedbackSerializer
+from .serializers import *
 from .models import ContentBlock, UserFeedback
 
 
@@ -13,6 +13,24 @@ class CreateUserView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class ListUsersView(generics.ListAPIView):
+    permission_classes = (IsAdminUser,)
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UpdateUserRoleView(generics.UpdateAPIView):
+    permission_classes = (IsAdminUser,)
+    queryset = User.objects.all()
+    serializer_class = RoleUpdateSerializer
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        print(request.data)
+        if 'is_staff' in request.data:
+            instance.is_staff = request.data['is_staff']
+
+        return super().update(request, *args, **kwargs, partial=True)
 
 class UpdatePasswordView(generics.UpdateAPIView):
     permission_classes = (IsAuthenticated,)

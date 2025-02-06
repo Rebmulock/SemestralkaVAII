@@ -17,6 +17,17 @@ main {
     background: #550a3cff;
 }
 
+.nav-break-other {
+    height: 4px;
+    width: 90%;
+
+    margin: 5rem 0 1rem;
+
+    border-radius: 15px;
+
+    background: #550a3cff;
+}
+
 .profile-container {
     width: 90%;
 

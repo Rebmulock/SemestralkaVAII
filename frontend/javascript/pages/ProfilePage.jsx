@@ -13,6 +13,7 @@ const ProfilePage = () => {
     });
     const [feedbacks, setFeedbacks] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [listUsers, setListUsers] = useState([]);
 
     useEffect( () => {
 
@@ -32,6 +33,14 @@ const ProfilePage = () => {
 
                 const data = await sendApiRequest('http://127.0.0.1:8000/api/user/', 'GET');
                 setUserData(data);
+
+                if (authData.authenticated && authData.is_staff) {
+                    const listUsersData = await sendApiRequest(
+                        'http://127.0.0.1:8000/api/list/users',
+                        'GET')
+
+                    setListUsers(listUsersData);
+                }
             } catch (err) {
                 setError('Failed to load user profile');
                 console.error('Error loading user profile:', err);
@@ -130,6 +139,35 @@ const ProfilePage = () => {
         }
     };
 
+    const handleAdminRoleChange = async (userId) => {
+        const updatedUser = listUsers.find(user => user.id === userId);
+        const newIsStaff = !updatedUser.is_staff;
+
+        const confirmed = window.confirm(
+            `Are you sure you want to ${newIsStaff ? 'grant' : 'revoke'} admin role for ${updatedUser.username}?`
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+        try {
+            await sendApiRequest(
+                `http://127.0.0.1:8000/api/update-user-role/${userId}`,
+                'PUT',
+                { is_staff: newIsStaff }
+            );
+
+            setListUsers(listUsers.map(user =>
+                user.id === userId ? { ...user, is_staff: newIsStaff } : user
+            ));
+
+        } catch (err) {
+            console.error('Error updating user role:', err);
+        }
+    };
+
+
     if (error) {
         return <div>Error: {error}</div>;
     }
@@ -139,75 +177,73 @@ const ProfilePage = () => {
     }
 
     return (
-        <>
-            <main>
-                <div className="nav-break"></div>
-                <p className="main-text">Profile Page</p>
+        <main>
+            <div className="nav-break"></div>
+            <p className="main-text">Profile Page</p>
 
-                <div className="profile-container">
-                    {!userAuth.is_staff && (
-                        <>
-                            <h3>First Name: {userData.first_name}</h3>
-                            <h3>Last Name: {userData.last_name}</h3>
-                        </>
-                    )}
-                    <h3>Username: {userData.username}</h3>
-                    <h3>E-mail: {userData.email}</h3>
-                    <div className="update-password-container">
-                        <h3>Update Password</h3>
-                        <form onSubmit={handleSubmit}>
-                            <div>
-                                <label htmlFor="oldPassword">Old Password:</label>
-                                <input
-                                    type="password"
-                                    id="oldPassword"
-                                    name="oldPassword"
-                                    value={formData.oldPassword}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="newPassword">New Password:</label>
-                                <input
-                                    type="password"
-                                    id="newPassword"
-                                    name="newPassword"
-                                    value={formData.newPassword}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="confirmPassword">Confirm New Password:</label>
-                                <input
-                                    type="password"
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    value={formData.confirmPassword}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </div>
-                            <button type="submit">Update Password</button>
-                        </form>
-                        {messageChange && <p className="success-message">{messageChange}</p>}
-                        {errorChange && <p className="error-message">{errorChange}</p>}
-                    </div>
-                    <h3>
-                        <button onClick={handleDelete} className="delete-button">
-                            Delete My Account
-                        </button>
-
-                        {messageDelete && <p className="success-message">{messageDelete}</p>}
-                        {errorDelete && <p className="error-message">{errorDelete}</p>}
-                    </h3>
+            <div className="profile-container">
+                {!userAuth.is_staff && (
+                    <>
+                        <h3>First Name: {userData.first_name}</h3>
+                        <h3>Last Name: {userData.last_name}</h3>
+                    </>
+                )}
+                <h3>Username: {userData.username}</h3>
+                <h3>E-mail: {userData.email}</h3>
+                <div className="update-password-container">
+                    <h3>Update Password</h3>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="oldPassword">Old Password:</label>
+                            <input
+                                type="password"
+                                id="oldPassword"
+                                name="oldPassword"
+                                value={formData.oldPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="newPassword">New Password:</label>
+                            <input
+                                type="password"
+                                id="newPassword"
+                                name="newPassword"
+                                value={formData.newPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="confirmPassword">Confirm New Password:</label>
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <button type="submit">Update Password</button>
+                    </form>
+                    {messageChange && <p className="success-message">{messageChange}</p>}
+                    {errorChange && <p className="error-message">{errorChange}</p>}
                 </div>
-            </main>
+                <h3>
+                    <button onClick={handleDelete} className="delete-button">
+                        Delete My Account
+                    </button>
+
+                    {messageDelete && <p className="success-message">{messageDelete}</p>}
+                    {errorDelete && <p className="error-message">{errorDelete}</p>}
+                </h3>
+            </div>
 
             {userAuth.is_staff && (
-                <main>
-                    <div className="nav-break"></div>
+                <>
+                    <div className="nav-break-other"></div>
                     <p className="main-text">Customer Feedbacks</p>
 
                     <div className="table-container">
@@ -245,9 +281,48 @@ const ProfilePage = () => {
                         {loading ? "Refreshing..." :
                             <img className="refresh-img" src="../../images/arrows-rotate-solid.svg" alt="refresh"/>}
                     </button>
-                </main>
+
+                    <div className="nav-break-other"></div>
+                    <p className="main-text">User Roles</p>
+
+                    <div className="table-container">
+                        <table className="feedback-table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nickname</th>
+                                <th>E-Mail</th>
+                                <th>Admin Role</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {listUsers.length > 0 ? (
+                                listUsers.map((listUser) => (
+                                    <tr key={listUser.id}>
+                                        <td>{listUser.id}</td>
+                                        <td>{listUser.username}</td>
+                                        <td>{listUser.email}</td>
+                                        <td>
+                                            <input
+                                                type="checkbox"
+                                                checked={listUser.is_staff}
+                                                onChange={() => handleAdminRoleChange(listUser.id)}
+                                            />
+                                        </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="4">No users available</td>
+                                </tr>
+                            )}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
             )}
-        </>
+        </main>
     );
 };
 

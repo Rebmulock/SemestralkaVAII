@@ -17,4 +17,6 @@ urlpatterns = [
     path('api/blueprint/delete/<int:pk>', views.DeleteContentBlock.as_view(), name='delete_content_block'),
     path('api/user/feedback', views.UserFeedbackView.as_view(), name='feedback'),
     path('api/auth', views.CheckAuthenticationView.as_view(), name='auth'),
+    path('api/list/users', views.ListUsersView.as_view(), name='list_users'),
+    path('api/update-user-role/<int:pk>', views.UpdateUserRoleView.as_view(), name='update_user_role'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
