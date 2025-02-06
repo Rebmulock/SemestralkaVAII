@@ -39,8 +39,12 @@ html, body {
     color: #0c183c;
 }
 
+.content-group {
+    width: 100%;
+}
+
 .content-block {
-    width: 60%;
+    max-width: 60%;
 
     margin: 0 6rem 6rem 6rem;
     padding: 1.5rem;
@@ -48,6 +52,10 @@ html, body {
     border-radius: 15px;
 
     background: #c1b2abff;
+}
+
+.content-block img {
+    max-height: 20rem;
 }
 
 .content {

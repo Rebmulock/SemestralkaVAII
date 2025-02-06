@@ -11,6 +11,7 @@ const LoginComponent = ({setHaveAccount}) => {
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const [isAuthenticated, setIsAuthenticated] = useState(null);
+    const [isStaff, setIsStaff] = useState(null);
 
     const fetchAuthentication = async () => {
             try {
@@ -21,6 +22,7 @@ const LoginComponent = ({setHaveAccount}) => {
                             false);
 
                 setIsAuthenticated(authData.data.authenticated);
+                setIsStaff(authData.data.is_staff);
             } catch (err) {
                 console.error('Error fetching authorisation:', err);
             }
@@ -91,6 +93,7 @@ const LoginComponent = ({setHaveAccount}) => {
             localStorage.removeItem("access");
 
             setIsAuthenticated(false);
+            setIsStaff(false);
 
             navigate("/")
         } catch (err) {
@@ -103,6 +106,10 @@ const LoginComponent = ({setHaveAccount}) => {
         navigate("/profile");
     }
 
+    const handleCreateRedirect = () => {
+        navigate("/content-block")
+    }
+
     return (
         <div>
             {isAuthenticated ? (
@@ -110,6 +117,7 @@ const LoginComponent = ({setHaveAccount}) => {
                     <div className="menu-option-logged">
                         <b>{localStorage.getItem("username")}</b>
                         <button onClick={handleProfileRedirect}>Profile</button>
+                        {isStaff && <button onClick={handleCreateRedirect}>Create</button>}
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>

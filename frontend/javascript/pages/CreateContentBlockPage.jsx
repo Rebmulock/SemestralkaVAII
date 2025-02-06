@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {sendApiRequest} from "../ApiRequest.jsx";
 import "../../css/contentblockpage.css";
+import {validateLettersOnly} from "../InputValidator.jsx";
 
 const CreateContentBlockPage = () => {
     const [data, setData] = useState({
@@ -12,7 +13,7 @@ const CreateContentBlockPage = () => {
 
     const [image, setImage] = useState(null);
 
-    const [error, setError] = useState([]);
+    const [error, setError] = useState(null);
     const [message, setMessage] = useState(null);
 
     const handleChange = (e) => {
@@ -20,6 +21,10 @@ const CreateContentBlockPage = () => {
             ...data,
             [e.target.name]: e.target.value,
         })
+
+        if(!validateLettersOnly(e.target.value)) {
+            setError("Letters only!")
+        }
     };
 
     const handleImageChange = (e) => {
