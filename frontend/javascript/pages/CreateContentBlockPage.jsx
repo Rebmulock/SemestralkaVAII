@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {sendApiRequest} from "../ApiRequest.jsx";
-import "../../css/imagepage.css";
+import "../../css/contentblockpage.css";
 
 const CreateContentBlockPage = () => {
     const [data, setData] = useState({
@@ -13,6 +13,7 @@ const CreateContentBlockPage = () => {
     const [image, setImage] = useState(null);
 
     const [error, setError] = useState([]);
+    const [message, setMessage] = useState(null);
 
     const handleChange = (e) => {
         setData({
@@ -45,8 +46,15 @@ const CreateContentBlockPage = () => {
                 false
             );
 
-            if (response) {
-                console.log(response.data);
+            if (response.status >= 200 && response.status < 300) {
+                setData({
+                    title: '',
+                    content: '',
+                    image_url: '',
+                    image_alt: '',
+                })
+
+                setMessage("Content block created");
             }
         } catch (err) {
             console.log(err.message);
@@ -55,49 +63,69 @@ const CreateContentBlockPage = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Title</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={data.title}
-                    onChange={handleChange}
-                    maxLength={100}
-                    required
-                />
+        <main>
+            <form className="content-block-form" onSubmit={handleSubmit}>
+                <div>
+                    <div className="content-block-title">
+                        <label><h2>Title</h2></label>
+                        <input
+                            type="text"
+                            name="title"
+                            value={data.title}
+                            onChange={handleChange}
+                            maxLength={100}
+                            required
+                        />
+                    </div>
 
-                <label>Content</label>
-                <input
-                    type="text"
-                    name="content"
-                    value={data.content}
-                    onChange={handleChange}
-                />
+                    <div className="content-block-content">
+                        <div className="content-image">
+                            <label>
+                                <input
+                                    id="image-input"
+                                    type="file"
+                                    name="image"
+                                    accept={"image/jpeg, image/jpg, image/png"}
+                                    onChange={(e) => {
+                                        handleImageChange(e);
+                                    }}
+                                />
 
-                <label>Image</label>
-                <input
-                    type="file"
-                    name="image"
-                    accept={"image/jpeg, image/jpg, image/png"}
-                    onChange={(e) => {
-                        handleImageChange(e);
-                    }}
-                />
-                <img className="image-preview" alt="preview image" src={image}/>
+                                <button
+                                    type="button"
+                                    onClick={() => document.getElementById('image-input').click()}
+                                >
+                                    Select Image
+                                </button>
+                            </label>
 
-                <label>Image Alternative Text</label>
-                <input
-                    type="text"
-                    name="image_alt"
-                    value={data.image_alt}
-                    onChange={handleChange}
-                />
-            </div>
+                            <img className="image-preview" alt="preview image" src={image}/>
 
-            {error && <p style={{color: "red"}}>{error}</p>}
-            <button type="submit">Create</button>
-        </form>
+                            <label>Image Alternative Text</label>
+                            <input
+                                type="text"
+                                name="image_alt"
+                                value={data.image_alt}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        <div className="content-text">
+                            <label>Content</label>
+                            <textarea
+                                name="content"
+                                value={data.content}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {message && <p style={{color: "green"}}>{error}</p>}
+                {error && <p style={{color: "red"}}>{error}</p>}
+                <button type="submit">Create</button>
+            </form>
+        </main>
     )
 }
 
