@@ -71,7 +71,7 @@ const Register = ({setHaveAccount}) => {
                 true
             );
 
-            if (response) {
+            if (response.status >= 200 && response.status < 300) {
                 setMessage("User registered successfully!");
                 setFormData({
                     first_name: '',
@@ -82,9 +82,19 @@ const Register = ({setHaveAccount}) => {
                     confirmPassword: '',
                     }
                 );
+            } else {
+                const {username, email} = response.data;
+
+                if (username) {
+                    setError(username[0]);
+                } else if (email) {
+                    setError(email[0]);
+                } else {
+                    setError(response.message);
+                }
             }
         } catch (err) {
-            setError(err);
+            setError(err.message);
         }
     };
 

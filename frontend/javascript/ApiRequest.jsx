@@ -35,14 +35,9 @@ export const sendApiRequest = async (url, method = "GET", data = null, noAuth = 
             });
         }
 
-        return response.data;
+        return response;
 
     } catch (error) {
-        if (error.response) {
-            console.error("Error status:", error.response.status);
-            console.error("Error data:", error.response.data);
-        } else {
-            console.error("Error:", error.message);
-        }
+        return error.response;
     }
 };

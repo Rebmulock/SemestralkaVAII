@@ -20,11 +20,13 @@ const ProfilePage = () => {
         const fetchUserProfile = async () => {
             try {
 
-                const authData = await sendApiRequest(
+                const response = await sendApiRequest(
                         'http://127.0.0.1:8000/api/auth',
                         'GET',
                         null,
                         false);
+
+                const authData = response.data;
 
                 setUserAuth({
                     authenticated: authData.authenticated,
@@ -32,14 +34,14 @@ const ProfilePage = () => {
                 });
 
                 const data = await sendApiRequest('http://127.0.0.1:8000/api/user/', 'GET');
-                setUserData(data);
+                setUserData(data.data);
 
                 if (authData.authenticated && authData.is_staff) {
                     const listUsersData = await sendApiRequest(
                         'http://127.0.0.1:8000/api/list/users',
                         'GET')
 
-                    setListUsers(listUsersData);
+                    setListUsers(listUsersData.data);
                 }
             } catch (err) {
                 setError('Failed to load user profile');
@@ -57,7 +59,7 @@ const ProfilePage = () => {
             const data = await sendApiRequest(
                         'http://127.0.0.1:8000/api/user/feedback', 'GET');
 
-            setFeedbacks(data);
+            setFeedbacks(data.data);
 
         } catch (err) {
             console.log(err)
@@ -130,9 +132,11 @@ const ProfilePage = () => {
                 }
             );
 
-            if (response) {
+            if (response.status >= 200 && response.status < 300) {
                 setMessageChange("Password updated successfully!");
                 setFormData({ oldPassword: '', newPassword: '', confirmPassword: '' });
+            } else {
+                setErrorChange(response.message);
             }
         } catch (err) {
             setErrorChange(err.message);

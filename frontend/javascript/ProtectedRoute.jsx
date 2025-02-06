@@ -14,7 +14,7 @@ const ProtectedRoute = () => {
                             null,
                             false);
 
-                setIsAuthenticated(authData.authenticated);
+                setIsAuthenticated(authData.data.authenticated);
             } catch (err) {
                 console.error('Error fetching authorisation:', err);
                 setIsAuthenticated(false);

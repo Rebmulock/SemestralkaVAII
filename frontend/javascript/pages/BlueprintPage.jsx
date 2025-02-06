@@ -14,8 +14,7 @@ const BlueprintPage = () => {
                     "GET",
                     null,
                     true);
-                setContentBlocks(response);
-                console.log(response);
+                setContentBlocks(response.data);
             } catch (error) {
                 console.log(error.message);
             }

@@ -45,9 +45,11 @@ const ScalingPage = () => {
                 message: ""
             });
 
-            if (response) {
+            if (response.status >= 200 && response.status < 300) {
                 setSuccessMessage("Thank you for your feedback! We will get back to you soon.");
                 console.log(response.message);
+            } else {
+                setError(response.message);
             }
         } catch (err) {
             console.log(err.message);
