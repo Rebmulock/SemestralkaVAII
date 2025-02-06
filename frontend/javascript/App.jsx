@@ -7,7 +7,7 @@ import UserControlComponent from "./components/UserControlComponent.jsx";
 import NavbarComponent from "./components/NavbarComponent.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import ImagePage from "./pages/Image.jsx";
+import CreateContentBlockPage from "./pages/CreateContentBlockPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
 
                 <Route element={<ProtectedRoute />}>
                     <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/content-block" element={<ImagePage />}/>
+                    <Route path="/content-block" element={<CreateContentBlockPage />}/>
                 </Route>
 
                 <Route path="*" element={<NotFound /> } />

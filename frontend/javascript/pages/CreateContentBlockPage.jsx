@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {sendApiRequest} from "../ApiRequest.jsx";
 import "../../css/imagepage.css";
 
-const ImagePage = () => {
+const CreateContentBlockPage = () => {
     const [data, setData] = useState({
         title: '',
         content: '',
@@ -101,4 +101,4 @@ const ImagePage = () => {
     )
 }
 
-export default ImagePage;
+export default CreateContentBlockPage;
